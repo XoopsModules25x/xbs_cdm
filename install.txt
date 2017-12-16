@@ -1,0 +1,25 @@
+Install instructions for Code Data Management
+----------------------------------------------
+
+1/ Create a new directory/folder called 'xbs_cdm' in your Xoops modules directory
+2/ unpack/unzip distribution files into xbs_cdm directory
+3/ Signon to your Xoops installation as administrator
+4/ In admin menu, install new CDM module as per normal module install
+
+Upgrade instructions from V1.0 to V1.1
+--------------------------------------
+1/ Unpack/unzip distribution files into your cdm directory, overwriting any existing files.
+2/ Signon to your Xoops installation as administrator
+3/ In admin menu, update the CDM module as per normal module update
+
+4/ CDM V1.1 requires an additional field on the cdm_code table.  If you are using Xoops V2.0.10 or better then the normal Xoops update process will add this column to the table.  If not then you need to run the following SQL statement (using phpAdmin perhaps) against your database.  Replace <xoopsdb> with the actual name of your xoops database.
+  ALTER TABLE <xoopsdb>_cdm_code ADD cd_param VARCHAR(255) AFTER cd_desc
+
+Upgrade instructions from V<1.5 to V1.5
+---------------------------------------
+1/ Rename your cdm directory to xbs_cdm
+2/ Unpack/unzip distribution files into your cdm directory, overwriting any existing files.
+3/ Signon to your Xoops installation as administrator
+4/ In admin menu, update the CDM module as per normal module update
+
+Read cdmhelp.html for more information.  You can also access the help file from the CDM administration screen (Module Documentation)
