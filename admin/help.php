@@ -2,7 +2,7 @@
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org/>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -25,42 +25,40 @@
 //  ------------------------------------------------------------------------ //
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2005, Ashley Kitson
-// URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// URL:       http://xoobs.net                                               //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    Code Data Management (CDM)                                     //
 // ------------------------------------------------------------------------- //
 /**
-* Code Admin page
-*
-* Allow administrator to create or modify code data
-*
-* @author Ashley Kitson http://xoobs.net
-* @copyright 2005 Ashley Kitson, UK
-* @package CDM
-* @subpackage Help
-* @version 1
-* @access private
-*/
+ * Code Admin page
+ *
+ * Allow administrator to create or modify code data
+ *
+ * @author     Ashley Kitson http://xoobs.net
+ * @copyright  2005 Ashley Kitson, UK
+ * @package    CDM
+ * @subpackage Help
+ * @version    1
+ * @access     private
+ */
 
 /**
-* Do all the declarations etc needed by an admin page
-*/
-include_once "adminheader.php";
+ * Do all the declarations etc needed by an admin page
+ */
+include_once __DIR__ . '/adminheader.php';
 
 //Display the admin menu
-xoops_module_admin_menu(0,'');
+xoops_module_admin_menu(0, '');
 
 /**
-* To use this as a template you need to write code to display
-* whatever it is you want displaying between here...
-*/
+ * To use this as a template you need to write code to display
+ * whatever it is you want displaying between here...
+ */
 
-include('../cdmhelp.html');
+include __DIR__ . '/../cdmhelp.html';
 /**
-* and here.
-*/
+ * and here.
+ */
 
 //And put footer in
 xoops_cp_footer();
-
-?>
