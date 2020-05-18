@@ -20,4 +20,4 @@ require dirname(dirname(__DIR__)) . '/mainfile.php';
 /**
  * If you want to use CDM in your own application, you must include defines.php in your own module header file
  */
-require XOOPS_ROOT_PATH . '/modules/xbs_cdm/include/defines.php';
+require XOOPS_ROOT_PATH . '/modules/xbscdm/include/defines.php';

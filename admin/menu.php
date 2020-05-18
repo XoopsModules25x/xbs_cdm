@@ -48,21 +48,20 @@
  * and use a switch statement on a variable passed to it from here, to keep things
  * simple, use one script per menu option;
  */
-defined('XOOPS_ROOT_PATH') || exit('XOOPS root path not defined');
 
-//$path = dirname(dirname(dirname(__DIR__)));
-//require_once $path . '/mainfile.php';
+include dirname(__DIR__) . '/preloads/autoloader.php';
 
-$moduleHandler = xoops_getHandler('module');
-$module        = $moduleHandler->getByDirname(basename(dirname(__DIR__)));
-$pathIcon32    = '../../' . $module->getInfo('icons32');
-xoops_loadLanguage('modinfo', $module->dirname());
+$moduleDirName = basename(dirname(__DIR__));
+$moduleDirNameUpper = mb_strtoupper($moduleDirName);
+/** @var \XoopsModules\Xbscdm\Helper $helper */
+$helper = \XoopsModules\Xbscdm\Helper::getInstance();
+$helper->loadLanguage('common');
+$helper->loadLanguage('feedback');
 
-$pathModuleAdmin = XOOPS_ROOT_PATH . '/' . $module->getInfo('dirmoduleadmin') . '/moduleadmin';
-if (!file_exists($fileinc = $pathModuleAdmin . '/language/' . $GLOBALS['xoopsConfig']['language'] . '/' . 'main.php')) {
-    $fileinc = $pathModuleAdmin . '/language/english/main.php';
+$pathIcon32 = \Xmf\Module\Admin::menuIconPath('');
+if (is_object($helper->getModule())) {
+    $pathModIcon32 = $helper->url($helper->getModule()->getInfo('modicons32'));
 }
-require_once $fileinc;
 
 $adminmenu              = [];
 $i                      = 0;
@@ -76,7 +75,7 @@ $adminmenu[$i]['icon']  = $pathIcon32 . '/home.png';
 $i++;
 $adminmenu[$i]['title'] = _MI_CDM_ADMENU1;
 $adminmenu[$i]['link']  = 'admin/adminsets.php';
-$adminmenu[$i]['icon']  = $pathIcon32 . '/manage.png';
+$adminmenu[$i]['icon']  = $pathIcon32 . '/type.png';
 $i++;
 $adminmenu[$i]['title'] = _MI_CDM_ADMENU2;
 $adminmenu[$i]['link']  = 'admin/admincodes.php';
@@ -84,7 +83,7 @@ $adminmenu[$i]['icon']  = $pathIcon32 . '/manage.png';
 $i++;
 $adminmenu[$i]['title'] = _MI_CDM_ADMENU3;
 $adminmenu[$i]['link']  = 'admin/adminupload.php';
-$adminmenu[$i]['icon']  = $pathIcon32 . '/manage.png';
+$adminmenu[$i]['icon']  = $pathIcon32 . '/upload.png';
 $i++;
 $adminmenu[$i]['title'] = _AM_MODULEADMIN_ABOUT;
 $adminmenu[$i]['link']  = 'admin/about.php';

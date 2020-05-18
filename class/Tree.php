@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace XoopsModules\Xbscdm;
+
 // $Id: tree.php,v 1.12 2003/09/26 10:17:45 okazu Exp $
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
@@ -30,7 +32,7 @@
 // ------------------------------------------------------------------------- //
 
 /**
- * Defines CDMObjectTree class
+ * Defines Tree class
  *
  * @package        CDM
  * @subpackage     CDMTree
@@ -40,7 +42,7 @@
  */
 
 /**
- * A tree structure with {@link CDMBaseObject}s as nodes
+ * A tree structure with {@link BaseObject}s as nodes
  * This is based on XoopsObjectTree which doesn't work as expected
  *
  * @package        CDM
@@ -49,7 +51,7 @@
  * @author         A Kitson (http://xoobs.net)
  * @copyright  (c) 2005 Ashley Kitson, Great Britain
  */
-class CDMObjectTree
+class Tree
 {
     /**#@+
      * @access    private
@@ -68,9 +70,9 @@ class CDMObjectTree
      * @param string $myId      field name of object ID
      * @param string $parentId  field name of parent object ID
      **/
-    public function __construct(&$objectArr, $myId, $parentId)
+    public function __construct($objectArr, $myId, $parentId)
     {
-        $this->_objects = &$objectArr;
+        $this->_objects = $objectArr;
 
         $this->_myId = $myId;
 
@@ -79,7 +81,7 @@ class CDMObjectTree
         foreach (array_keys($this->_objects) as $i) {
             $key1 = rtrim($this->_objects[$i]->getVar($this->_myId));
 
-            $this->_tree[$key1]['obj'] = &$this->_objects[$i];
+            $this->_tree[$key1]['obj'] = $this->_objects[$i];
 
             $key2 = rtrim($this->_objects[$i]->getVar($this->_parentId));
 
@@ -149,7 +151,7 @@ class CDMObjectTree
      * Make a select box with options from the tree
      *
      * NB, this makes only the selection box, not its label etc.
-     * To use a fully formed selection box use CDMFormTreeSelect() to be found
+     * To use a fully formed selection box use FormTreeSelect() to be found
      * in class.cdm.form.php
      *
      * @param string $name              Name of the select box
@@ -220,7 +222,7 @@ class CDMObjectTree
      *
      * creates an associative array of code=>value where value is indented
      * by $prefix if not a level zero node in the tree.  Primarily
-     * intended to be used by CDMFormTreeSelect() to create a selection form box
+     * intended to be used by FormTreeSelect() to create a selection form box
      *
      * @param string $dispFld name of field to use for value
      * @param string $prefix  character used to indent tree hierarchy

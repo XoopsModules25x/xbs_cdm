@@ -48,7 +48,7 @@
  * define('CDM_DIR', $xoopsModule->dirname());
  * </code>
  */
-define('CDM_DIR', 'xbs_cdm');
+define('CDM_DIR', 'xbscdm');
 
 /**
  * Function: Get the current module's configuration options

@@ -80,7 +80,7 @@ $lang_tble2nm = [_MD_CDM_LISTCOlSET, _MD_CDM_LISTCOlLANG, _MD_CDM_LISTCOlCODE, _
 $xoopsTpl->assign('lang_tble2nm', $lang_tble2nm);
 
 //get Meta data to display
-$metaHandler = xoops_getModuleHandler('CDMMeta', CDM_DIR);
+$metaHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Meta');
 $metaData    = $metaHandler->listMeta();
 //append it into the template, and find the first set name at same time
 $count = 0;
@@ -98,8 +98,8 @@ foreach ($metaData as $myrow) {
 $codeSet = (empty($_GET['codeSet']) ? $codeSet : $_GET['codeSet']);
 $xoopsTpl->assign('setname', $codeSet);
 // get code data for display
-$setHandler = xoops_getModuleHandler('CDMSet', CDM_DIR);
-$set        = &$setHandler->getall($codeSet);
+$setHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Set');
+$set        = $setHandler->getAll($codeSet);
 if ($set) {
     $codeData = $set->getFullCodeList();
 

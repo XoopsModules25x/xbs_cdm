@@ -3,7 +3,7 @@
 <table width="100%" class="outer" cellspacing='1'>
     <caption>
         <{$lang_table1name}><br>
-        <a href="cdm_meta_edit.php?id=0"><img src="<{$xoops_url}>/modules/cdm/images/b_insrow.png" title="<{$lang_insert}>"> <{$lang_insert}></a>&nbsp;&nbsp;
+        <a href="cdm_meta_edit.php?id=0"><img src="<{$xoops_url}>/modules/xbscdm/assets/images/b_insrow.png" title="<{$lang_insert}>"> <{$lang_insert}></a>&nbsp;&nbsp;
         <{$lang_table1info}>
     </caption>
     <!-- Column names -->
@@ -33,7 +33,7 @@
 <table width="100%" class="outer" cellspacing='1'>
     <caption>
         <{$lang_table2name}><{$setname}><br>
-        <a href="cdm_codes_edit.php?id=0&cd_set=<{$setname}>"><img src="<{$xoops_url}>/modules/cdm/images/b_insrow.png" title="<{$lang_insert}>"> <{$lang_insert}></a>&nbsp;&nbsp;
+        <a href="cdm_codes_edit.php?id=0&cd_set=<{$setname}>"><img src="<{$xoops_url}>/modules/xbscdm/assets/images/b_insrow.png" title="<{$lang_insert}>"> <{$lang_insert}></a>&nbsp;&nbsp;
         <{$lang_table2info}>
     </caption>
     <!-- Column names -->
@@ -56,7 +56,7 @@
             <td align="LEFT" class="even"><{$codes[i].row_flag}></td>
             <td align="center" class="odd"><a
                         href="cdm_codes_edit.php?id=<{$codes[i].id}>"><img
-                            src="<{$xoops_url}>/modules/cdm/images/b_edit.png" title="<{$lang_edit}>"></a></td>
+                            src="<{$xoops_url}>/modules/xbscdm/assets/images/b_edit.png" title="<{$lang_edit}>"></a></td>
 
         </tr>
     <{/section}>

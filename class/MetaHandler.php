@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace XoopsModules\Xbscdm;
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -32,26 +34,19 @@
 // ------------------------------------------------------------------------- //
 /**
  * @package       CDM
- * @subpackage    CDMMeta
+ * @subpackage    Meta
  * @author        Ashley Kitson http://xoobs.net
  * @copyright (c) 2004 Ashley Kitson, Great Britain
  */
-if (!defined('XOOPS_ROOT_PATH')) {
-    exit('Call to include CDMMeta.php failed as XOOPS_ROOT_PATH not defined');
-}
+
 
 /**
- * Require statements
- */
-require_once CDM_PATH . '/class/class.cdm.base.php';
-
-/**
- * Object handler for CDMMeta
+ * Object handler for Meta
  *
  * @package    CDM
- * @subpackage CDMMeta
+ * @subpackage Meta
  */
-class Xbs_CdmCDMMetaHandler extends CDMBaseHandler
+class MetaHandler extends BaseHandler
 {
     /**
      * Constructor
@@ -65,19 +60,19 @@ class Xbs_CdmCDMMetaHandler extends CDMBaseHandler
     }
 
     /**
-     * Create a new CDMMeta object
+     * Create a new Meta object
      *
      * @access private
      */
-    public function &_create()
+    public function _create()
     {
-        return new CDMMeta();
+        return new Meta();
     }
 
     //end function _create
 
     /**
-     * Construct a sql string to retrieve CDMMeta data
+     * Construct a sql string to retrieve Meta data
      *
      * @access private
      *
@@ -105,7 +100,7 @@ class Xbs_CdmCDMMetaHandler extends CDMBaseHandler
      *
      * @param string $set name of meta set
      *
-     * @return CDMMeta meta set object
+     * @return Meta meta set object
      */
     public function getkey($set)
     {
@@ -133,7 +128,7 @@ class Xbs_CdmCDMMetaHandler extends CDMBaseHandler
      *
      * @return bool True if succeessful else False
      */
-    public function insert(XoopsObject $meta)
+    public function insert(\XoopsObject $meta)
     {
         if (!$meta->isDirty()) {
             return true;

@@ -21,7 +21,7 @@
             <td align="LEFT" class="even"><{$sets[i].cd_desc}></td>
             <td align="LEFT" class="even"><{$sets[i].row_flag}></td>
             <td align="CENTER" class="odd"><a href="index.php?codeSet=<{$sets[i].cd_set}>"><img
-                            src="<{$xoops_url}>/modules/xbs_cdm/images/b_browse.png" title="<{$lang_select}>"></a></td>
+                            src="<{$xoops_url}>/modules/xbscdm/assets/images/b_browse.png" title="<{$lang_select}>"></a></td>
         </tr>
     <{/section}>
     <!-- end sets item loop -->

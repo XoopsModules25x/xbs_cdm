@@ -83,15 +83,15 @@ if (empty($_POST['submit'])) {
 
         //Set up form fields
 
-        $file = new XoopsFormFile(_MD_CDM_UDF1, 'fileloc', 0);
+        $file = new \XoopsFormFile(_MD_CDM_UDF1, 'fileloc', 0);
 
-        $submit = new XoopsFormButton('', 'submit', _MD_CDM_UDF2, 'submit');
+        $submit = new \XoopsFormButton('', 'submit', _MD_CDM_UDF2, 'submit');
 
-        $cancel = new XoopsFormButton('', 'cancel', _MD_CDM_UDF3, 'submit');
+        $cancel = new \XoopsFormButton('', 'cancel', _MD_CDM_UDF3, 'submit');
 
-        $reset = new XoopsFormButton('', 'reset', _MD_CDM_UDF4, 'reset');
+        $reset = new \XoopsFormButton('', 'reset', _MD_CDM_UDF4, 'reset');
 
-        $button_tray = new XoopsFormElementTray('', '');
+        $button_tray = new \XoopsFormElementTray('', '');
 
         $button_tray->addElement($submit);
 
@@ -99,7 +99,7 @@ if (empty($_POST['submit'])) {
 
         $button_tray->addElement($reset);
 
-        $codeForm = new XoopsThemeForm(_MD_CDM_UDF0, 'form', 'cdm_update.php');
+        $codeForm = new \XoopsThemeForm(_MD_CDM_UDF0, 'form', 'cdm_update.php');
 
         $codeForm->setExtra("enctype='multipart/form-data'");
 
@@ -130,7 +130,7 @@ if (empty($_POST['submit'])) {
 
     $allowed_mimetypes = ['text/plain'];
 
-    $uploader = new XoopsMediaUploader(XOOPS_ROOT_PATH . '/uploads', $allowed_mimetypes, 1048576);
+    $uploader = new \XoopsMediaUploader(XOOPS_ROOT_PATH . '/uploads', $allowed_mimetypes, 1048576);
 
     if ($uploader->fetchMedia($_POST['xoops_upload_file'][0])) {
         if (!$uploader->upload()) {

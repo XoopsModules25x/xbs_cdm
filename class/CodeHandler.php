@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace XoopsModules\Xbscdm;
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -32,26 +34,19 @@
 // ------------------------------------------------------------------------- //
 /**
  * @package       CDM
- * @subpackage    CDMCode
+ * @subpackage    Code
  * @author        Ashley Kitson http://xoobs.net
  * @copyright (c) 2004 Ashley Kitson, Great Britain
  */
-if (!defined('XOOPS_ROOT_PATH')) {
-    exit('Call to include CDMCode.php failed as XOOPS_ROOT_PATH not defined');
-}
+
 
 /**
- * Require Statements
- */
-require_once CDM_PATH . '/class/class.cdm.base.php';
-
-/**
- * Object handler for CDMCode
+ * Object handler for Code
  *
  * @package    CDM
- * @subpackage CDMCode
+ * @subpackage Code
  */
-class Xbs_CdmCDMCodeHandler extends CDMBaseHandler
+class CodeHandler extends BaseHandler
 {
     /**
      * Constructor
@@ -68,19 +63,19 @@ class Xbs_CdmCDMCodeHandler extends CDMBaseHandler
     }
 
     /**
-     * Create a new CDMCode object
+     * Create a new Code object
      *
      * @access private
      */
     public function _create()
     {
-        return new CDMCode();
+        return new Code();
     }
 
     //end function _create
 
     /**
-     * Construct a sql string to retrieve CDMCode data
+     * Construct a sql string to retrieve Code data
      *
      * @access private
      *
@@ -111,7 +106,7 @@ class Xbs_CdmCDMCodeHandler extends CDMBaseHandler
      *
      * @access private
      *
-     * @param CDMCode $code Handle to CDMCode object
+     * @param Code $code Handle to Code object
      * @return null
      * @return null
      */
@@ -151,9 +146,9 @@ class Xbs_CdmCDMCodeHandler extends CDMBaseHandler
     /**
      * Function: get code meta data
      *
-     * fills a CDMCode object with code meta data from set meta record
+     * fills a Code object with code meta data from set meta record
      *
-     * @param CDMCode &$code Handle to CDMCode object
+     * @param Code &$code Handle to Code object
      * @return null
      * @return null
      * @version 1
@@ -162,9 +157,9 @@ class Xbs_CdmCDMCodeHandler extends CDMBaseHandler
      */
     public function _getMetaData($code)
     {
-        $metaHandler = xoops_getModuleHandler('CDMMeta', CDM_DIR);
+        $metaHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Meta');
 
-        $meta = &$metaHandler->getall($code->getVar('cd_set'));
+        $meta = $metaHandler->getAll($code->getVar('cd_set'));
 
         $code->setVar('_cd_type', $meta->getVar('cd_type'));
 
@@ -180,7 +175,7 @@ class Xbs_CdmCDMCodeHandler extends CDMBaseHandler
     /**
      * Get all data for object given id.
      *
-     * OVERIDES CDMBaseHandler to construct child code sequence array
+     * OVERIDES BaseHandler to construct child code sequence array
      * for the code.  Copies meta info in from meta record
      * For safety use the get method which will only return Active rows.
      *
@@ -192,9 +187,9 @@ class Xbs_CdmCDMCodeHandler extends CDMBaseHandler
      *
      * @return object descendent of CDMBase
      */
-    public function getall($id, $row_flag = null, $lang = null)
+    public function getAll($id, $row_flag = null, $lang = null)
     {
-        $code = parent::getall($id, $row_flag, $lang);
+        $code = parent::getAll($id, $row_flag, $lang);
 
         if ($code) {
             //construct child code list and assign to kids variable
@@ -329,7 +324,7 @@ class Xbs_CdmCDMCodeHandler extends CDMBaseHandler
      *
      * @return bool True if succeessful else False
      */
-    public function insert(XoopsObject $code)
+    public function insert(\XoopsObject $code)
     {
         if (!$code->isDirty()) {
             return true;
@@ -373,7 +368,7 @@ class Xbs_CdmCDMCodeHandler extends CDMBaseHandler
 
         //  The next call to get a select list will update them
 
-        $setHandler = xoops_getModuleHandler('CDMSet', CDM_DIR);
+        $setHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Set');
 
         return $ret && $setHandler->delList($cd_set, $cd_lang);
     }

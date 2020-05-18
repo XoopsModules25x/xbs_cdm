@@ -46,7 +46,7 @@
 /**
  * Do all the declarations etc needed by an admin page
  */
-require_once __DIR__ . '/adminheader.php';
+require_once __DIR__ . '/admin_header.php';
 
 //Display the admin menu
 xoops_module_admin_menu();

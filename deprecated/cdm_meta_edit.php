@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+use XoopsModules\Xbscdm\Form;
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -53,10 +55,7 @@ require('header.php');
  * Main Xoops header
  */
 require XOOPS_ROOT_PATH . '/header.php';
-/**
- * include class.cd.form.php to use CDM Form elements
- */
-require_once CDM_PATH . '/class/class.cdm.form.php';
+
 /**
  * CDM common functions
  */
@@ -92,13 +91,13 @@ function dispForm()
 
     $GLOBALS['xoopsOption']['template_main'] = 'cdm_meta_edit.tpl';    // Set the template page to be used
 
-    $metaHandler = xoops_getModuleHandler('CDMMeta', CDM_DIR);
+    $metaHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Meta');
 
     $id = (string)$_GET['codeSet'];
 
     //    print($id."<br>");
     if (!empty($id) && '0' != $id) { //retrieve the existing data object
-        $metaData = &$metaHandler->getall($id);
+        $metaData = $metaHandler->getAll($id);
     } else { //create a new meta object
         $metaData = $metaHandler->create();
 
@@ -110,42 +109,42 @@ function dispForm()
     if ($metaData) {
         //Set up form fields
         if ('0' == $id) { //if id = "0" then user has requested a new code setup so present edit box
-            $cd_set = new XoopsFormText(_MD_CDM_MEF1, 'cd_set', 10, 10, '');
+            $cd_set = new \XoopsFormText(_MD_CDM_MEF1, 'cd_set', 10, 10, '');
 
-            $new_flag = new XoopsFormHidden('new_flag', true); //tell POST process we are new
+            $new_flag = new \XoopsFormHidden('new_flag', true); //tell POST process we are new
         } else { // else display the current set name as a label because it is primary key
-            $cd_set = new XoopsFormLabel(_MD_CDM_MEF1, $metaData->getVar('cd_set'));
+            $cd_set = new \XoopsFormLabel(_MD_CDM_MEF1, $metaData->getVar('cd_set'));
 
-            $set_hid = new XoopsFormHidden('cd_set', $metaData->getVar('cd_set')); //still need to know set name in POST process
+            $set_hid = new \XoopsFormHidden('cd_set', $metaData->getVar('cd_set')); //still need to know set name in POST process
 
-            $new_flag = new XoopsFormHidden('new_flag', false);
+            $new_flag = new \XoopsFormHidden('new_flag', false);
         }//end if
 
-        $cd_type = new CDMFormSelectFldType(_MD_CDM_MEF2, 'cd_type', $metaData->getVar('cd_type'));
+        $cd_type = new Xbscdm\Form\FormSelectFldType(_MD_CDM_MEF2, 'cd_type', $metaData->getVar('cd_type'));
 
-        $cd_len = new XoopsFormText(_MD_CDM_MEF3, 'cd_len', 3, 3, $metaData->getVar('cd_len'));
+        $cd_len = new \XoopsFormText(_MD_CDM_MEF3, 'cd_len', 3, 3, $metaData->getVar('cd_len'));
 
-        $val_type = new CDMFormSelectFldType(_MD_CDM_MEF4, 'val_type', $metaData->getVar('val_type'));
+        $val_type = new Xbscdm\Form\FormSelectFldType(_MD_CDM_MEF4, 'val_type', $metaData->getVar('val_type'));
 
-        $val_len = new XoopsFormText(_MD_CDM_MEF5, 'val_len', 3, 3, $metaData->getVar('val_len'));
+        $val_len = new \XoopsFormText(_MD_CDM_MEF5, 'val_len', 3, 3, $metaData->getVar('val_len'));
 
-        $cd_desc = new XoopsFormTextArea(_MD_CDM_MEF6, 'cd_desc', $metaData->getVar('cd_desc'));
+        $cd_desc = new \XoopsFormTextArea(_MD_CDM_MEF6, 'cd_desc', $metaData->getVar('cd_desc'));
 
-        $row_flag = new CDMFormSelectRstat(_MD_CDM_MEF7, 'row_flag', $metaData->getVar('row_flag'), 1, $metaData->getVar('row_flag'));
+        $row_flag = new Xbscdm\Form\FormSelectRstat(_MD_CDM_MEF7, 'row_flag', $metaData->getVar('row_flag'), 1, $metaData->getVar('row_flag'));
 
         $ret = getXoopsUser($metaData->getVar('row_uid'));
 
-        $row_uid = new XoopsFormLabel(_MD_CDM_MEF8, $ret);
+        $row_uid = new \XoopsFormLabel(_MD_CDM_MEF8, $ret);
 
-        $row_dt = new XoopsFormLabel(_MD_CDM_MEF9, $metaData->getVar('row_dt'));
+        $row_dt = new \XoopsFormLabel(_MD_CDM_MEF9, $metaData->getVar('row_dt'));
 
-        $submit = new XoopsFormButton('', 'submit', _MD_CDM_MEF10, 'submit');
+        $submit = new \XoopsFormButton('', 'submit', _MD_CDM_MEF10, 'submit');
 
-        $cancel = new XoopsFormButton('', 'cancel', _MD_CDM_MEF11, 'submit');
+        $cancel = new \XoopsFormButton('', 'cancel', _MD_CDM_MEF11, 'submit');
 
-        $reset = new XoopsFormButton('', 'reset', _MD_CDM_MEF12, 'reset');
+        $reset = new \XoopsFormButton('', 'reset', _MD_CDM_MEF12, 'reset');
 
-        $metaForm = new XoopsThemeForm(_MD_CDM_MEF13, 'metaform', 'cdm_meta_edit.php');
+        $metaForm = new \XoopsThemeForm(_MD_CDM_MEF13, 'metaform', 'cdm_meta_edit.php');
 
         if ('0' == $id) {
             $metaForm->addElement($cd_set, true);
@@ -194,14 +193,14 @@ function submitForm()
 
     extract($_POST);
 
-    $metaHandler = xoops_getModuleHandler('CDMMeta', CDM_DIR);
+    $metaHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Meta');
 
     if ($new_flag) {
         $metaData = $metaHandler->create();
 
         $metaData->setVar('cd_set', $cd_set);
     } else {
-        $metaData = &$metaHandler->getall($cd_set);
+        $metaData = $metaHandler->getAll($cd_set);
     }
 
     $metaData->setVar('cd_type', $cd_type);

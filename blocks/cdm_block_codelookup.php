@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+use XoopsModules\Xbscdm;
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -53,11 +55,7 @@ define('CDM_BLOOKUP_DEFINED', true);
 /**
  * CDM constant definitions
  */
-require_once XOOPS_ROOT_PATH . '/modules/xbs_cdm/include/defines.php';
-/**
- * CDM form element class
- */
-require_once CDM_PATH . '/class/class.cdm.form.php';
+require_once XOOPS_ROOT_PATH . '/modules/xbscdm/include/defines.php';
 
 /**
  * Function: Create display data for block
@@ -96,7 +94,7 @@ function b_cdm_codelookup_show($options)
 
     //set of codes for display
 
-    $fset = new CDMFormSelect($setName, '', 'cd', null, 1, $langName);
+    $fset = new Xbscdm\Form\FormSelect($setName, '', 'cd', null, 1, $langName);
 
     $fset->setExtra('onChange = "showCode()"');
 
@@ -107,7 +105,7 @@ function b_cdm_codelookup_show($options)
     $block['defcdval'] = _MB_CDM_BLOOK_DEFCDVAL;
 
     if ($setChange) {
-        $setChoice = new CDMFormSelectSet('', 'cd_set');
+        $setChoice = new Xbscdm\Form\FormSelectSet('', 'cd_set');
 
         $setChoice->setValue($setName);
 
@@ -119,7 +117,7 @@ function b_cdm_codelookup_show($options)
     //language change ability
 
     if ($langChange) {
-        $langChoice = new CDMFormSelectSetLangs($setName, '', 'cd_lang');
+        $langChoice = new Xbscdm\Form\FormSelectSetLangs($setName, '', 'cd_lang');
 
         $block['langchange'] = $langChoice->render();
 
@@ -129,7 +127,7 @@ function b_cdm_codelookup_show($options)
     //button if required
 
     if ($setChange || $langChange) {
-        $submit = new XoopsFormButton('', 'submit', _MB_CDM_BLOOK_SUBMIT, 'submit');
+        $submit = new \XoopsFormButton('', 'submit', _MB_CDM_BLOOK_SUBMIT, 'submit');
 
         $block['submit'] = $submit->render();
     }
@@ -171,7 +169,7 @@ function b_cdm_codelookup_edit($options)
 
     $fld = [];
 
-    $s = new CDMFormSelectSet('', 'options[]');
+    $s = new Xbscdm\Form\FormSelectSet('', 'options[]');
 
     $s->setValue($options[0]);
 
@@ -179,7 +177,7 @@ function b_cdm_codelookup_edit($options)
 
     unset($s);
 
-    $s = new CDMFormSelectLanguage('', 'options[]');
+    $s = new Xbscdm\Form\FormSelectLanguage('', 'options[]');
 
     $s->setValue($options[1]);
 
@@ -191,7 +189,7 @@ function b_cdm_codelookup_edit($options)
         $options[2] = 0;
     }
 
-    $s = new XoopsFormCheckBox('', 'options[]', $options[2]);
+    $s = new \XoopsFormCheckBox('', 'options[]', $options[2]);
 
     $s->addOption('1', 'Yes');
 
@@ -203,7 +201,7 @@ function b_cdm_codelookup_edit($options)
         $options[3] = 0;
     }
 
-    $s = new XoopsFormCheckBox('', 'options[]', $options[3]);
+    $s = new \XoopsFormCheckBox('', 'options[]', $options[3]);
 
     $s->addOption('1', 'Yes');
 

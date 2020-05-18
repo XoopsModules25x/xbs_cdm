@@ -10,7 +10,7 @@
 </HEAD>
 <BODY LANG="en-US" DIR="LTR">
 <div align="center">
-    <a href="http://xoobs.net" target="_blank"><img src="../images/Xoobs Banner Title.gif"></a><br>
+    <a href="http://xoobs.net" target="_blank"><img src="../assets/images/Xoobs Banner Title.gif"></a><br>
 </div>
 <H1>Code Data Management module help</H1>
 
@@ -72,7 +72,7 @@
     for hierarchical code sets<BR>V1.4 Maintenance release<BR>V1.5 Moved
     all admin things to admin backend. Added code lookup block. Added
     html code list selector data caching<BR>to speed up display of html
-    selector boxes via CDMFormCountry etc.</P>
+    selector boxes via FormCountry etc.</P>
 
 <P><span style="font-weight: bold;">V1.5 will be the last full release for Xoops V2.0.x All future
     development will be for Xoops 2.2.x</span></P>
@@ -81,7 +81,7 @@
 
 <P>Installing CDM is as straightforward as installing any other Xoops
     module. Simply unpack the archive file into a directory called
-    'xbs_cdm' in your Xoops module directory. Then install as for any
+    'xbscdm' in your Xoops module directory. Then install as for any
     other module using the Xoops administration-modules functionality.
     The installation process loads 4 default sets of codes 1/BASE - just
     a holder for application base data, 2/LANGUAGE - the set of allowable
@@ -279,7 +279,7 @@
     that have a tree hierarchy simply by adding the code for the parent
     to each child code. When you display the edit screen for the parent
     code, its child codes are displayed on the screen and you can
-    hyperlink through to the children. Support is given in the CDMSet
+    hyperlink through to the children. Support is given in the Set
     object to create a xoopsTree object of hierarchical code sets that
     can then be used by your application.
 </P>
@@ -349,8 +349,8 @@
 </P>
 
 <P>By far and away the easiest way to use CDM is by extending the
-    CDMFormSelect object found in the <span style="font-weight: bold;">class.cdm.form.php</span> script.
-    Take a look at that script to see how the CDMFormSelectCountry and
+    FormSelect object found in the <span style="font-weight: bold;">class.cdm.form.php</span> script.
+    Take a look at that script to see how the FormSelectCountry and
     other code select list objects are instantiated and use them as a
     model to create your own class.
 </P>
@@ -366,10 +366,10 @@
     CDM_PATH.&quot;/class/class.cdm.form.php&quot;;
 </P>
 
-<P>&nbsp;class MyModuleFormSelectCards extends CDMFormSelect
+<P>&nbsp;class MyModuleFormSelectCards extends FormSelect
     {<BR>&nbsp;&nbsp;function MyModuleFormSelectCards($caption, $name,
     $value=null, $size=1, $lang=CDM_DEF_LANG)
-    {<BR>$this-&gt;CDMFormSelect('CARDS', $caption, $name, $value, $size,
+    {<BR>$this-&gt;FormSelect('CARDS', $caption, $name, $value, $size,
     $lang);<BR>&nbsp;&nbsp;}<BR>&nbsp;}</P>
 
 <P>In your form creation script your would include or require
@@ -379,7 +379,7 @@
 </P>
 
 <P>Take a look at the scripts <span style="font-weight: bold;">cdm_codes_edit.php</span> and
-    <span style="font-weight: bold;">cdm_meta_edit.php</span> to see the built in CDMForms objects being
+    <span style="font-weight: bold;">cdm_meta_edit.php</span> to see the built in Forms objects being
     used. (You can find these in the 'deprecated' directory under the CDM
     module directory, as they are no longer used as at V1.5)</P>
 
@@ -396,15 +396,15 @@
     objects.</P>
 
 <P>If you want to do something more complex with your code data then
-    you will need to use the CDMMeta, CDMCode and CDMSet objects with
+    you will need to use the Meta, Code and Set objects with
     their associated handlers directly. The class tree for these objects
     is:
 </P>
 
-<P>XoopsObject<BR>---&gt; CDMBaseObject<BR>--------&gt;
-    CDMMeta<BR>--------&gt; CDMCode<BR>--------&gt; CDMSet</P>
+<P>XoopsObject<BR>---&gt; BaseObject<BR>--------&gt;
+    Meta<BR>--------&gt; Code<BR>--------&gt; Set</P>
 
-<P>XoopsObjectHandler<BR>---&gt; CDMBaseHandler<BR>--------&gt;
+<P>XoopsObjectHandler<BR>---&gt; BaseHandler<BR>--------&gt;
     CdmCDMMetaHandler<BR>--------&gt; CdmCDMCodeHandler<BR>--------&gt;
     CdmCDMSetHandler</P>
 
@@ -414,7 +414,7 @@
 
 <P>//NB CDM_DIR is a constant set in defines.php and must be used in
     calls to xoops_getModuleHandler<BR>$setHandler =&amp;
-    xoops_getModuleHandler(&quot;CDMSet&quot;,CDM_DIR);<BR>$set =&amp;
+    xoops_getModuleHandler(&quot;Set&quot;,CDM_DIR);<BR>$set =&amp;
     $setHandler-&gt;get(&quot;SOMESET&quot;);<BR>$set2 =&amp;
     $setHandler-&gt;create();
 </P>
@@ -441,7 +441,7 @@
     codeset identifer.
 </BLOCKQUOTE>
 <BLOCKQUOTE>function CDMGetCodeObj($codeSet, $codeKey,
-    $lang=CDM_DEF_LANG)<BR>Returns a CDMCode object for the requested
+    $lang=CDM_DEF_LANG)<BR>Returns a Code object for the requested
     code in a set.
 </BLOCKQUOTE>
 <BLOCKQUOTE>function getXoopsUser($id)<BR>Return a valid xoops user
@@ -453,8 +453,8 @@
 
 <P>Take a look at <span style="font-weight: bold;">index.php, cdm_codes_edit.php </span>and
     <span style="font-weight: bold;">cdm_meta_edit.php</span> for more examples. You will also need to
-    study <span style="font-weight: bold;">class.cdm.base.php, CDMMeta.php, CDMCode.php </span>and
-    <span style="font-weight: bold;">CDMSet.php</span> for class definitions. Beware however that under
+    study <span style="font-weight: bold;">class.cdm.base.php, Meta.php, Code.php </span>and
+    <span style="font-weight: bold;">Set.php</span> for class definitions. Beware however that under
     normal circumstances, you should avoid using the &quot;getall&quot;
     methods of the handler objects as they will return all data
     (suspended and defunct) which is not usually what you require. Use

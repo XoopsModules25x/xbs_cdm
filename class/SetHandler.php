@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace XoopsModules\Xbscdm;
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -32,34 +34,19 @@
 // ------------------------------------------------------------------------- //
 /**
  * @package       CDM
- * @subpackage    CDMSet
+ * @subpackage    Set
  * @author        Ashley Kitson http://xoobs.net
  * @copyright (c) 2004 Ashley Kitson, Great Britain
  */
-if (!defined('XOOPS_ROOT_PATH')) {
-    exit('Call to include CDMMeta.php failed as XOOPS_ROOT_PATH not defined');
-}
+
 
 /**
- * CDM base classes
- */
-require_once CDM_PATH . '/class/class.cdm.base.php';
-/**
- * CDM Meta data class
- */
-require_once CDM_PATH . '/class/CDMMeta.php';
-/**
- * CDM Code data classs
- */
-require_once CDM_PATH . '/class/CDMCode.php';
-
-/**
- * Object handler for CDMSet
+ * Object handler for Set
  *
- * @subpackage CDMSet
+ * @subpackage Set
  * @package    CDM
  */
-class Xbs_CdmCDMSetHandler extends CDMBaseHandler
+class SetHandler extends BaseHandler
 {
     /**
      * Constructor
@@ -76,11 +63,11 @@ class Xbs_CdmCDMSetHandler extends CDMBaseHandler
      * Create a new set of codes, including meta data and codes
      *
      * @access private
-     * @return  CDMSet object
+     * @return  Set object
      */
-    public function &_create()
+    public function _create()
     {
-        return new CDMSet();
+        return new Set();
     }
 
     //end function _create
@@ -96,17 +83,17 @@ class Xbs_CdmCDMSetHandler extends CDMBaseHandler
      * @param string $code_row_flag Option(CDM_RSTAT_ACT, ..SUS, ..DEF)  Applies to the code data
      *
      * @param null   $lang
-     * @return bool CDMSet if OK, else FALSE on failure
+     * @return bool Set if OK, else FALSE on failure
      */
-    public function getall($set, $meta_row_flag = null, $code_row_flag = null, $lang = null)
+    public function getAll($set, $meta_row_flag = null, $code_row_flag = null, $lang = null)
     {
         if (!empty($set)) {
             $codeset = $this->create(false);
 
             if ($codeset) {
-                $metaHandler = xoops_getModuleHandler('CDMMeta', CDM_DIR);
+                $metaHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Meta');
 
-                $meta = &$metaHandler->getall($set, $meta_row_flag);
+                $meta = $metaHandler->getAll($set, $meta_row_flag);
 
                 if ($meta) {
                     // store the Meta data
@@ -132,13 +119,13 @@ class Xbs_CdmCDMSetHandler extends CDMBaseHandler
 
                         if ($this->db->getRowsNum($result) > 0) {
                             //retrieve the code ids and create objects to store in our code array
-                            $codeHandler = xoops_getModuleHandler('CDMCode', CDM_DIR); //get the code handler
+                            $codeHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Code'); //get the code handler
                             $count       = 0;
 
                             $arr = [];
 
                             while (false !== ($row = $this->db->fetchRow($result))) {
-                                $arr[$count++] = &$codeHandler->getall($row[0], $code_row_flag);
+                                $arr[$count++] = $codeHandler->getAll($row[0], $code_row_flag);
                             }
 
                             $codeset->assignVar('code', $arr);
@@ -153,11 +140,11 @@ class Xbs_CdmCDMSetHandler extends CDMBaseHandler
                     }
                     //end if $result
                 } else { //set error code unable to instantiate Meta
-                    $this->setError(-1, sprintf(_MD_CDM_ERR_2, 'CDMMeta'));
+                    $this->setError(-1, sprintf(_MD_CDM_ERR_2, 'Meta'));
                 }
                 //end if $meta
-            } else { //set error code unable to instantiate CDMCode
-                $this->setError(-1, sprintf(_MD_CDM_ERR_2, 'CDMCode'));
+            } else { //set error code unable to instantiate Code
+                $this->setError(-1, sprintf(_MD_CDM_ERR_2, 'Code'));
             }
             //end if $code
         } else { //set error code $set not valid
@@ -180,13 +167,13 @@ class Xbs_CdmCDMSetHandler extends CDMBaseHandler
      */
     public function get($set, $lang = CDM_DEF_LANG)
     {
-        return $this->getall($set, CDM_RSTAT_ACT, CDM_RSTAT_ACT, $lang);
+        return $this->getAll($set, CDM_RSTAT_ACT, CDM_RSTAT_ACT, $lang);
     }
 
     //end function get
 
     /**
-     * @param        $set
+     * @param string  $set
      * @param string $lang
      * @return object
      */
@@ -202,7 +189,7 @@ class Xbs_CdmCDMSetHandler extends CDMBaseHandler
      *
      * @return false
      */
-    public function reload()
+    public function reload($obj, $key = null)
     {
         return false;
     }
@@ -213,7 +200,7 @@ class Xbs_CdmCDMSetHandler extends CDMBaseHandler
      *
      * @return false
      */
-    public function insert()
+    public function insert(\XoopsObject $obj)
     {
         return false;
     }

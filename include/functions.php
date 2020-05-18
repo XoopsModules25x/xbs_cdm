@@ -49,11 +49,11 @@
  * @param string $codeSet Name of code set
  * @param string $lang    Language set for code set
  *
- * @return CDMSet
+ * @return Set
  */
 function CDMGetCodeSet($codeSet, $lang = CDM_DEF_LANG)
 {
-    $setHandler = xoops_getModuleHandler('CDMSet', CDM_DIR);
+    $setHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Set');
 
     return $setHandler->get($codeSet, $lang);
 }
@@ -65,7 +65,7 @@ function CDMGetCodeSet($codeSet, $lang = CDM_DEF_LANG)
  * @param string $codeKey Name of code
  * @param string $lang    Language set for code set
  *
- * @return CDMCode
+ * @return Code
  */
 function CDMGetCodeObj($codeSet, $codeKey, $lang = CDM_DEF_LANG)
 {
