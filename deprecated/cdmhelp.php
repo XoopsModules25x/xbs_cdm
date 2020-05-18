@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://www.xoops.org>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -26,34 +27,33 @@
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2004, Ashley Kitson
 // URL:       http://xoobs.net				                                 //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// Project:   The XOOPS Project (https://www.xoops.org/)                      //
 // Module:    Code Data Management (CDM)                                     //
 // ------------------------------------------------------------------------- //
-/** 
+/**
  * Display help file for CDM
  *
  * This is simply a wrapper for cdmhelp.html.
- * 
- * @author Ashley Kitson http://xoobs.net
+ *
+ * @author        Ashley Kitson http://xoobs.net
  * @copyright (c) 2004, Ashley Kitson
- * @package CDM
- * @subpackage Help
+ * @package       CDM
+ * @subpackage    Help
  */
 
 /**
-* MUST include page header
-*/
-require("header.php");
+ * MUST include page header
+ */
+require('header.php');
 /**
-* include the main header file
-*/
-include XOOPS_ROOT_PATH."/header.php";
+ * include the main header file
+ */
+require XOOPS_ROOT_PATH . '/header.php';
 /**
-* pull in the actual help file source
-*/
-include CDM_PATH."/cdmhelp.html";
+ * pull in the actual help file source
+ */
+include CDM_PATH . '/cdmhelp.html';
 /**
-* Display the page
-*/
-include XOOPS_ROOT_PATH.'/footer.php';
-?>
+ * Display the page
+ */
+require XOOPS_ROOT_PATH . '/footer.php';

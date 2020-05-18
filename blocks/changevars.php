@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://www.xoops.org>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -26,19 +27,19 @@
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2005, Ashley Kitson
 // URL:       http://xoobs.net                                               //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// Project:   The XOOPS Project (https://www.xoops.org/)                      //
 // Module:    Code Data Management (CDM)                                     //
 // ------------------------------------------------------------------------- //
 /**
-* Change the set and language choices for code lookup block
-* 
-* @author Ashley Kitson http://xoobs.net
-* @copyright 2005 Ashley Kitson, UK
-* @package CDM
-* @subpackage Blocks
-* @version 1
-* @access private
-*/
+ * Change the set and language choices for code lookup block
+ *
+ * @author     Ashley Kitson http://xoobs.net
+ * @copyright  2005 Ashley Kitson, UK
+ * @package    CDM
+ * @subpackage Blocks
+ * @version    1
+ * @access     private
+ */
 
 /**
  * Xoops mainfile
@@ -56,19 +57,18 @@ global $_SESSION;
 /**
  * Form get variables
  */
-global $HTTP_GET_VARS;
+global $_GET;
 /**
  * Server variables
  */
 global $_SERVER;
 
-if (isset($HTTP_GET_VARS['cd_set'])) {
-	$_SESSION['cdm_blookup_set'] = $HTTP_GET_VARS['cd_set'];
+if (isset($_GET['cd_set'])) {
+    $_SESSION['cdm_blookup_set'] = $_GET['cd_set'];
 }
-if (isset($HTTP_GET_VARS['cd_lang'])) {
-	$_SESSION['cdm_blookup_lang'] = $HTTP_GET_VARS['cd_lang'];
+if (isset($_GET['cd_lang'])) {
+    $_SESSION['cdm_blookup_lang'] = $_GET['cd_lang'];
 }
 
 //and go back to the page we were on
-redirect_header($_SERVER['HTTP_REFERER'],1);
-?>
+redirect_header(\Xmf\Request::getString('HTTP_REFERER', '', 'SERVER'), 1);
