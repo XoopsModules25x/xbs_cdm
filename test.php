@@ -1,17 +1,16 @@
-<?php
-/**
-* MUST include module page header
-*/
-require("header.php");
+<?php declare(strict_types=1);
 
 /**
-* include the main header file
-*/
-include XOOPS_ROOT_PATH."/header.php";
+ * MUST include module page header
+ */
+require('header.php');
 
-include CDM_PATH.'/include/functions.php';
+/**
+ * include the main header file
+ */
+require XOOPS_ROOT_PATH . '/header.php';
 
-$a = CDMGetCode('LANGUAGE','EN');
+include CDM_PATH . '/include/functions.php';
+
+$a = CDMGetCode('LANGUAGE', 'EN');
 print $a;
-
-?>

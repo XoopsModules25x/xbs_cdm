@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -25,32 +26,69 @@
 //  ------------------------------------------------------------------------ //
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2004, Ashley Kitson
-// URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// URL:       http://xoobs.net                                               //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    Code Data Management (CDM)                                     //
 // ------------------------------------------------------------------------- //
 /**
-* Admin menu declaration
-*
-* This script conforms to the Xoops standard for admin/menu.php
-*
-* @author Ashley Kitson http://xoobs.net
-* @copyright 2005 Ashley Kitson, UK
-* @package CDM
-* @subpackage Admin
-* @version 1
-* @access private
-*/
+ * Admin menu declaration
+ *
+ * This script conforms to the Xoops standard for admin/menu.php
+ *
+ * @author     Ashley Kitson http://xoobs.net
+ * @copyright  2005 Ashley Kitson, UK
+ * @package    CDM
+ * @subpackage Admin
+ * @version    1
+ * @access     private
+ */
 
 /**
-* Whilst you can link your menu options to a single file, typically admin/index.php
-* and use a switch statement on a variable passed to it from here, to keep things
-* simple, use one script per menu option;
-*/
-$adminmenu[1]['title'] = _MI_CDM_ADMENU1;
-$adminmenu[1]['link'] = "admin/adminsets.php";
-$adminmenu[2]['title'] = _MI_CDM_ADMENU2;
-$adminmenu[2]['link'] = "admin/admincodes.php";
-$adminmenu[3]['title'] = _MI_CDM_ADMENU3;
-$adminmenu[3]['link'] = "admin/adminupload.php";
-?>
+ * Whilst you can link your menu options to a single file, typically admin/index.php
+ * and use a switch statement on a variable passed to it from here, to keep things
+ * simple, use one script per menu option;
+ */
+
+include dirname(__DIR__) . '/preloads/autoloader.php';
+
+$moduleDirName = basename(dirname(__DIR__));
+$moduleDirNameUpper = mb_strtoupper($moduleDirName);
+/** @var \XoopsModules\Xbscdm\Helper $helper */
+$helper = \XoopsModules\Xbscdm\Helper::getInstance();
+$helper->loadLanguage('common');
+$helper->loadLanguage('feedback');
+
+$pathIcon32 = \Xmf\Module\Admin::menuIconPath('');
+if (is_object($helper->getModule())) {
+    $pathModIcon32 = $helper->url($helper->getModule()->getInfo('modicons32'));
+}
+
+$adminmenu              = [];
+$i                      = 0;
+$adminmenu[$i]['title'] = _AM_MODULEADMIN_HOME;
+$adminmenu[$i]['link']  = 'admin/index.php';
+$adminmenu[$i]['icon']  = $pathIcon32 . '/home.png';
+//$i++;
+//$adminmenu[$i]['title'] = _MI_OLEDRION_ADMENU10;
+//$adminmenu[$i]['link'] = "admin/main.php";
+//$adminmenu[$i]["icon"]  = $pathIcon32 . '/manage.png';
+$i++;
+$adminmenu[$i]['title'] = _MI_CDM_ADMENU1;
+$adminmenu[$i]['link']  = 'admin/adminsets.php';
+$adminmenu[$i]['icon']  = $pathIcon32 . '/type.png';
+$i++;
+$adminmenu[$i]['title'] = _MI_CDM_ADMENU2;
+$adminmenu[$i]['link']  = 'admin/admincodes.php';
+$adminmenu[$i]['icon']  = $pathIcon32 . '/manage.png';
+$i++;
+$adminmenu[$i]['title'] = _MI_CDM_ADMENU3;
+$adminmenu[$i]['link']  = 'admin/adminupload.php';
+$adminmenu[$i]['icon']  = $pathIcon32 . '/upload.png';
+$i++;
+$adminmenu[$i]['title'] = _AM_MODULEADMIN_ABOUT;
+$adminmenu[$i]['link']  = 'admin/about.php';
+$adminmenu[$i]['icon']  = $pathIcon32 . '/about.png';
+$i++;
+$adminmenu[$i]['title'] = _AM_MODULEADMIN_ABOUT;
+$adminmenu[$i]['link']  = 'admin/help.php';
+$adminmenu[$i]['icon']  = $pathIcon32 . '/help.png';

@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -25,22 +26,24 @@
 //  ------------------------------------------------------------------------ //
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2004, Ashley Kitson
-// URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// URL:       http://xoobs.net                                               //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    Code Data Management (CDM)                                     //
 // ------------------------------------------------------------------------- //
 
-/** 
+/**
  * Module install, uninstall and update scripts
- * 
+ *
  * Callback functions that are called during module update, install and delete
  * processing.
- * 
- * @author Ashley Kitson http://xoobs.net
+ *
+ * @author        Ashley Kitson http://xoobs.net
  * @copyright (c) 2004, Ashley Kitson
- * @package CDM
- * @subpackage Installation
- * @access private
+ * @package       CDM
+ * @subpackage    Installation
+ * @access        private
+ * @param mixed $module
+ * @param mixed $oldVersion
  */
 
 /**
@@ -48,41 +51,51 @@
  *
  * module update function
  *
- * @global xoopsDB xoopsDatabase object
- * @param xoopsModule &$module Handle to current module
- * @param int $oldVersion version of module prior to update
- * @return boolean True if success else False
+ * @param xoopsModule &$module     Handle to current module
+ * @param int          $oldVersion version of module prior to update
+ *
+ * @return bool True if success else False
+ * @global            xoopsDB     xoopsDatabase object
+ *
  */
-function xoops_module_update_cdm(&$module,$oldVersion) {
-  global $xoopsDB;
-  if ($oldVersion < 110) { //upgrading from version 1.00
-    //add a new column to cdm_code table
-    $sql = "ALTER TABLE ".$xoopsDB->prefix(cdm_code)." ADD cd_param VARCHAR(255) AFTER cd_desc";
-    $ret = ($result = $xoopsDB->queryF($sql));
-    if (!$ret) {
-      $module->setErrors('Unable to execute query "'.$sql.'" whilst updating CDM module');
-      return false;
-    }
-  }
-    
-  if ($oldVersion < 120) { //upgrading from version 1.10
-    //perform other upgrading stuff
-  }
+function xoops_module_update_cdm($module, $oldVersion)
+{
+    global $xoopsDB;
 
-  if ($oldVersion < 130) { //upgrading from version 1.20
-    //perform other upgrading stuff
-  }
-  
-  if ($oldVersion < 140) { //upgrading from version 1.30
-    //perform other upgrading stuff
-  }
+    if ($oldVersion < 110) { //upgrading from version 1.00
+        //add a new column to cdm_code table
+
+        $sql = 'ALTER TABLE ' . $xoopsDB->prefix(cdm_code) . ' ADD cd_param VARCHAR(255) AFTER cd_desc';
+
+        $ret = ($result = $xoopsDB->queryF($sql));
+
+        if (!$ret) {
+            $module->setErrors('Unable to execute query "' . $sql . '" whilst updating CDM module');
+
+            return false;
+        }
+    }
+
+    if ($oldVersion < 120) { //upgrading from version 1.10
+        //perform other upgrading stuff
+    }
+
+    if ($oldVersion < 130) { //upgrading from version 1.20
+        //perform other upgrading stuff
+    }
+
+    if ($oldVersion < 140) { //upgrading from version 1.30
+        //perform other upgrading stuff
+    }
 
     if ($oldVersion < 150) { //upgrading from version 1.40
-    //perform other upgrading stuff
-  }
+        //perform other upgrading stuff
+    }
 
-  return true;
-}//end function
+    return true;
+}
+
+//end function
 
 /**
  * function xoops_module_install_cdm
@@ -90,12 +103,17 @@ function xoops_module_update_cdm(&$module,$oldVersion) {
  * module install function
  *
  * @param xoopModule &$module Handle to current module
- * @return boolean True if success else False
+ *
+ * @return bool True if success else False
  */
-function xoops_module_install_cdm(&$module) {
-//The basic SQL install is done via the SQL script
-return true;
-}//end function
+function xoops_module_install_cdm(&$module)
+{
+    //The basic SQL install is done via the SQL script
+
+    return true;
+}
+
+//end function
 
 /**
  * function xoops_module_uninstall_cdm
@@ -103,14 +121,14 @@ return true;
  * module uninstall function
  *
  * @param xoopModule &$module Handle to current module
- * @return boolean True if success else False
+ *
+ * @return bool True if success else False
  */
-function xoops_module_uninstall_cdm(&$module) {
-//CDM tables are deleted via the Xoops uninstaller
-return true;
-}//end function
+function xoops_module_uninstall_cdm(&$module)
+{
+    //CDM tables are deleted via the Xoops uninstaller
 
+    return true;
+}
 
-
-
-?>
+//end function

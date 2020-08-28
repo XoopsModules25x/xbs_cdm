@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
+
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
-//                       <http://www.xoops.org/>                             //
+//                       <https://xoops.org>                             //
 //  ------------------------------------------------------------------------ //
 //  This program is free software; you can redistribute it and/or modify     //
 //  it under the terms of the GNU General Public License as published by     //
@@ -25,64 +26,63 @@
 //  ------------------------------------------------------------------------ //
 // Author:    Ashley Kitson                                                  //
 // Copyright: (c) 2005, Ashley Kitson
-// URL:       http://xoobs.net			                                     //
-// Project:   The XOOPS Project (http://www.xoops.org/)                      //
+// URL:       http://xoobs.net                                               //
+// Project:   The XOOPS Project (https://xoops.org/)                      //
 // Module:    Code Data Management (CDM)                                     //
 // ------------------------------------------------------------------------- //
 /**
-* Bulk Code upload page
-*
-* Allow administrator to upload a sql instruction file to update/fill CDM database.
-* Please see system documentation for file format and usage instructions.
-*
-* @author Ashley Kitson http://xoobs.net
-* @copyright 2005 Ashley Kitson, UK
-* @package CDM
-* @subpackage Admin
-* @version 1
-* @access private
-*/
+ * Bulk Code upload page
+ *
+ * Allow administrator to upload a sql instruction file to update/fill CDM database.
+ * Please see system documentation for file format and usage instructions.
+ *
+ * @author     Ashley Kitson http://xoobs.net
+ * @copyright  2005 Ashley Kitson, UK
+ * @package    CDM
+ * @subpackage Admin
+ * @version    1
+ * @access     private
+ */
 
 /**
-* Do all the declarations etc needed by an admin page
-*/
-include_once "adminheader.php";
+ * Do all the declarations etc needed by an admin page
+ */
+require_once __DIR__ . '/admin_header.php';
+//require_once __DIR__ . '/adminheader.php';
 
 //Display the admin menu
-xoops_module_admin_menu(3,_AM_CDM_ADMENU3);
+//xoops_module_admin_menu(3, _AM_CDM_ADMENU3);
 
 /**
-* To use this as a template you need to write code to display
-* whatever it is you want displaying between here...
-*/
+ * To use this as a template you need to write code to display
+ * whatever it is you want displaying between here...
+ */
 
 /**
-* @global array Form Post variables
-*/
-global $HTTP_POST_VARS;
+ * @global array Form Post variables
+ */
+global $_POST;
 /**
-* @global array Get variables
-*/
-global $HTTP_GET_VARS;
+ * @global array Get variables
+ */
+global $_GET;
 /**
-* @global array User Session variables
-*/
+ * @global array User Session variables
+ */
 global $_SESSION;
 
-extract($HTTP_POST_VARS);
+extract($_POST);
 if (isset($submit)) { //User has selected file to upload so go do it
-	adminBulkUpload($xoops_upload_file[0]);
+    adminBulkUpload($xoops_upload_file[0]);
 } elseif (isset($cancel)) { //user has pressed cancel input button
-	redirect_header(CDM_URL."/admin/adminupload.php",5,_MD_CDM_CEF14);
+    redirect_header(CDM_URL . '/admin/adminupload.php', 5, _MD_CDM_CEF14);
 } else { // present input form to user
-	adminSelectBulkUpload();
+    adminSelectBulkUpload();
 } //end if
 
 /**
-* and here.
-*/
+ * and here.
+ */
 
 //And put footer in
-xoops_cp_footer();
-
-?>
+require_once __DIR__ . '/admin_footer.php';
