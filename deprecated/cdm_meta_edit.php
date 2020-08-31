@@ -63,7 +63,7 @@ require_once CDM_PATH . '/include/functions.php';
 
 //Check to see if user logged in
 if (empty($xoopsUser)) {
-    redirect_header(CDM_URL . '/index.php?codeSet=' . CDM_DEF_SET, 1, _MD_CDM_ERR_5);
+    redirect_header(CDM_URL . '/index.php?codeSet=' . CDM_DEF_SET, 1, _MD_XBSCDM_ERR_5);
 }
 
 /**
@@ -109,42 +109,42 @@ function dispForm()
     if ($metaData) {
         //Set up form fields
         if ('0' == $id) { //if id = "0" then user has requested a new code setup so present edit box
-            $cd_set = new \XoopsFormText(_MD_CDM_MEF1, 'cd_set', 10, 10, '');
+            $cd_set = new \XoopsFormText(_MD_XBSCDM_MEF1, 'cd_set', 10, 10, '');
 
             $new_flag = new \XoopsFormHidden('new_flag', true); //tell POST process we are new
         } else { // else display the current set name as a label because it is primary key
-            $cd_set = new \XoopsFormLabel(_MD_CDM_MEF1, $metaData->getVar('cd_set'));
+            $cd_set = new \XoopsFormLabel(_MD_XBSCDM_MEF1, $metaData->getVar('cd_set'));
 
             $set_hid = new \XoopsFormHidden('cd_set', $metaData->getVar('cd_set')); //still need to know set name in POST process
 
             $new_flag = new \XoopsFormHidden('new_flag', false);
         }//end if
 
-        $cd_type = new Xbscdm\Form\FormSelectFldType(_MD_CDM_MEF2, 'cd_type', $metaData->getVar('cd_type'));
+        $cd_type = new Xbscdm\Form\FormSelectFldType(_MD_XBSCDM_MEF2, 'cd_type', $metaData->getVar('cd_type'));
 
-        $cd_len = new \XoopsFormText(_MD_CDM_MEF3, 'cd_len', 3, 3, $metaData->getVar('cd_len'));
+        $cd_len = new \XoopsFormText(_MD_XBSCDM_MEF3, 'cd_len', 3, 3, $metaData->getVar('cd_len'));
 
-        $val_type = new Xbscdm\Form\FormSelectFldType(_MD_CDM_MEF4, 'val_type', $metaData->getVar('val_type'));
+        $val_type = new Xbscdm\Form\FormSelectFldType(_MD_XBSCDM_MEF4, 'val_type', $metaData->getVar('val_type'));
 
-        $val_len = new \XoopsFormText(_MD_CDM_MEF5, 'val_len', 3, 3, $metaData->getVar('val_len'));
+        $val_len = new \XoopsFormText(_MD_XBSCDM_MEF5, 'val_len', 3, 3, $metaData->getVar('val_len'));
 
-        $cd_desc = new \XoopsFormTextArea(_MD_CDM_MEF6, 'cd_desc', $metaData->getVar('cd_desc'));
+        $cd_desc = new \XoopsFormTextArea(_MD_XBSCDM_MEF6, 'cd_desc', $metaData->getVar('cd_desc'));
 
-        $row_flag = new Xbscdm\Form\FormSelectRstat(_MD_CDM_MEF7, 'row_flag', $metaData->getVar('row_flag'), 1, $metaData->getVar('row_flag'));
+        $row_flag = new Xbscdm\Form\FormSelectRstat(_MD_XBSCDM_MEF7, 'row_flag', $metaData->getVar('row_flag'), 1, $metaData->getVar('row_flag'));
 
         $ret = getXoopsUser($metaData->getVar('row_uid'));
 
-        $row_uid = new \XoopsFormLabel(_MD_CDM_MEF8, $ret);
+        $row_uid = new \XoopsFormLabel(_MD_XBSCDM_MEF8, $ret);
 
-        $row_dt = new \XoopsFormLabel(_MD_CDM_MEF9, $metaData->getVar('row_dt'));
+        $row_dt = new \XoopsFormLabel(_MD_XBSCDM_MEF9, $metaData->getVar('row_dt'));
 
-        $submit = new \XoopsFormButton('', 'submit', _MD_CDM_MEF10, 'submit');
+        $submit = new \XoopsFormButton('', 'submit', _MD_XBSCDM_MEF10, 'submit');
 
-        $cancel = new \XoopsFormButton('', 'cancel', _MD_CDM_MEF11, 'submit');
+        $cancel = new \XoopsFormButton('', 'cancel', _MD_XBSCDM_MEF11, 'submit');
 
-        $reset = new \XoopsFormButton('', 'reset', _MD_CDM_MEF12, 'reset');
+        $reset = new \XoopsFormButton('', 'reset', _MD_XBSCDM_MEF12, 'reset');
 
-        $metaForm = new \XoopsThemeForm(_MD_CDM_MEF13, 'metaform', 'cdm_meta_edit.php');
+        $metaForm = new \XoopsThemeForm(_MD_XBSCDM_MEF13, 'metaform', 'cdm_meta_edit.php');
 
         if ('0' == $id) {
             $metaForm->addElement($cd_set, true);
@@ -218,7 +218,7 @@ function submitForm()
     if (!$metaHandler->insert($metaData)) {
         redirect_header(CDM_URL . '/index.php?codeSet=' . $cd_set, 1, $metaHandler->getError());
     } else {
-        redirect_header(CDM_URL . '/index.php?codeSet=' . $cd_set, 1, _MD_CDM_MEF15);
+        redirect_header(CDM_URL . '/index.php?codeSet=' . $cd_set, 1, _MD_XBSCDM_MEF15);
     }//end if
 } //end function submitForm
 
@@ -232,7 +232,7 @@ if (empty($_POST['submit'])) {
     } else { //user has cancelled form
         $cd_set = $_POST['cd_set'];
 
-        redirect_header(CDM_URL . '/index.php?codeSet=' . $cd_set, 1, _MD_CDM_MEF14);
+        redirect_header(CDM_URL . '/index.php?codeSet=' . $cd_set, 1, _MD_XBSCDM_MEF14);
     }//end if empty cancel
 } else { //User has submitted form
     submitForm();

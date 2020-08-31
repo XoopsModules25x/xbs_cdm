@@ -232,11 +232,11 @@ function updateDatabase($sqlFile, $errorPage)
         $sql_file_path = XOOPS_ROOT_PATH . '/' . $sqlFile;
 
         if (!file_exists($sql_file_path)) {
-            $errs[] = sprintf(_MD_CDM_ERR_20, $sql_file_path);
+            $errs[] = sprintf(_MD_XBSCDM_ERR_20, $sql_file_path);
 
             $error = true;
         } else {
-            $msgs[] = sprintf(_MD_CDM_ERR_21, $sql_file_path);
+            $msgs[] = sprintf(_MD_XBSCDM_ERR_21, $sql_file_path);
 
             /**
              * SQL Database utilities
@@ -280,7 +280,7 @@ function updateDatabase($sqlFile, $errorPage)
                     $prefixed_query = SqlUtility::prefixQuery($piece, $pref, $lang);
 
                     if (!$prefixed_query) {
-                        $errs[] = sprintf(_MD_CDM_ERR_22, $piece);
+                        $errs[] = sprintf(_MD_XBSCDM_ERR_22, $piece);
 
                         $error = true;
 
@@ -302,12 +302,12 @@ function updateDatabase($sqlFile, $errorPage)
                             break;
                         }
 
-                        $msgs[] = '&nbsp;&nbsp;' . sprintf(_MD_CDM_ERR_23, $db->prefix($prefixed_query[0]));
+                        $msgs[] = '&nbsp;&nbsp;' . sprintf(_MD_XBSCDM_ERR_23, $db->prefix($prefixed_query[0]));
                         //end else
                     } else {
                         // the table name is reserved, so halt the installation
 
-                        $errs[] = sprintf(_MD_CDM_ERR_24, $prefixed_query[4]);
+                        $errs[] = sprintf(_MD_XBSCDM_ERR_24, $prefixed_query[4]);
 
                         $error = true;
 

@@ -51,7 +51,7 @@ require_once __DIR__ . '/admin_header.php';
 //require_once __DIR__ . '/adminheader.php';
 
 //Display the admin menu
-//xoops_module_admin_menu(3, _AM_CDM_ADMENU3);
+//xoops_module_admin_menu(3, _AM_XBSCDM_ADMENU3);
 
 /**
  * To use this as a template you need to write code to display
@@ -75,7 +75,7 @@ extract($_POST);
 if (isset($submit)) { //User has selected file to upload so go do it
     adminBulkUpload($xoops_upload_file[0]);
 } elseif (isset($cancel)) { //user has pressed cancel input button
-    redirect_header(CDM_URL . '/admin/adminupload.php', 5, _MD_CDM_CEF14);
+    redirect_header(CDM_URL . '/admin/adminupload.php', 5, _MD_XBSCDM_CEF14);
 } else { // present input form to user
     adminSelectBulkUpload();
 } //end if

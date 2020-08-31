@@ -58,14 +58,14 @@ $sql    = 'SELECT id, cd_set, cd_lang, cd, cd_prnt, cd_value, cd_desc FROM ' . $
 $result = $xoopsDB->query($sql) || exit('Error reading database');
 
 //set up page and column titles
-$xoopsTpl->assign('lang_pagetitle', _MD_CDM_LISTPAGETITLE);
-$xoopsTpl->assign('lang_col1name', _MD_CDM_LISTCOlSET);
-$xoopsTpl->assign('lang_col2name', _MD_CDM_LISTCOlLANG);
-$xoopsTpl->assign('lang_col3name', _MD_CDM_LISTCOlCODE);
-$xoopsTpl->assign('lang_col4name', _MD_CDM_LISTCOlPRNT);
-$xoopsTpl->assign('lang_col5name', _MD_CDM_LISTCOlVAL);
-$xoopsTpl->assign('lang_col6name', _MD_CDM_LISTCOlDESC);
-$xoopsTpl->assign('lang_edit', _MD_CDM_LISTEDITNAME);
+$xoopsTpl->assign('lang_pagetitle', _MD_XBSCDM_LISTPAGETITLE);
+$xoopsTpl->assign('lang_col1name', _MD_XBSCDM_LISTCOlSET);
+$xoopsTpl->assign('lang_col2name', _MD_XBSCDM_LISTCOlLANG);
+$xoopsTpl->assign('lang_col3name', _MD_XBSCDM_LISTCOlCODE);
+$xoopsTpl->assign('lang_col4name', _MD_XBSCDM_LISTCOlPRNT);
+$xoopsTpl->assign('lang_col5name', _MD_XBSCDM_LISTCOlVAL);
+$xoopsTpl->assign('lang_col6name', _MD_XBSCDM_LISTCOlDESC);
+$xoopsTpl->assign('lang_edit', _MD_XBSCDM_LISTEDITNAME);
 
 //Take each row at a time from the result set and append it into the template
 while (false !== ($myrow = $xoopsDB->fetchArray($result))) {

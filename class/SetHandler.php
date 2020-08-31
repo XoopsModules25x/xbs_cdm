@@ -133,22 +133,22 @@ class SetHandler extends BaseHandler
                             return $codeset;
                         }   //set error code no data returned
 
-                        $this->setError(-1, sprintf(_MD_CDM_ERR_1, (string)$set));
+                        $this->setError(-1, sprintf(_MD_XBSCDM_ERR_1, (string)$set));
                         // end if number of codes > 0
                     } else { //set database error code
                         $this->setError($this->db->errno(), $this->db->error());
                     }
                     //end if $result
                 } else { //set error code unable to instantiate Meta
-                    $this->setError(-1, sprintf(_MD_CDM_ERR_2, 'Meta'));
+                    $this->setError(-1, sprintf(_MD_XBSCDM_ERR_2, 'Meta'));
                 }
                 //end if $meta
             } else { //set error code unable to instantiate Code
-                $this->setError(-1, sprintf(_MD_CDM_ERR_2, 'Code'));
+                $this->setError(-1, sprintf(_MD_XBSCDM_ERR_2, 'Code'));
             }
             //end if $code
         } else { //set error code $set not valid
-            $this->setError(-1, _MD_CDM_ERR_4);
+            $this->setError(-1, _MD_XBSCDM_ERR_4);
         }
 
         //end if !empty(set)

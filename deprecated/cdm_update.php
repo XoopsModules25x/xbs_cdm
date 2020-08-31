@@ -72,7 +72,7 @@ if (empty($_POST['submit'])) {
         global $xoopsUser;
 
         if (empty($xoopsUser)) {
-            redirect_header(CDM_URL . '/index.php?codeSet=' . CDM_DEF_SET, 1, _MD_CDM_ERR_5);
+            redirect_header(CDM_URL . '/index.php?codeSet=' . CDM_DEF_SET, 1, _MD_XBSCDM_ERR_5);
         }
 
         /**
@@ -83,13 +83,13 @@ if (empty($_POST['submit'])) {
 
         //Set up form fields
 
-        $file = new \XoopsFormFile(_MD_CDM_UDF1, 'fileloc', 0);
+        $file = new \XoopsFormFile(_MD_XBSCDM_UDF1, 'fileloc', 0);
 
-        $submit = new \XoopsFormButton('', 'submit', _MD_CDM_UDF2, 'submit');
+        $submit = new \XoopsFormButton('', 'submit', _MD_XBSCDM_UDF2, 'submit');
 
-        $cancel = new \XoopsFormButton('', 'cancel', _MD_CDM_UDF3, 'submit');
+        $cancel = new \XoopsFormButton('', 'cancel', _MD_XBSCDM_UDF3, 'submit');
 
-        $reset = new \XoopsFormButton('', 'reset', _MD_CDM_UDF4, 'reset');
+        $reset = new \XoopsFormButton('', 'reset', _MD_XBSCDM_UDF4, 'reset');
 
         $button_tray = new \XoopsFormElementTray('', '');
 
@@ -99,7 +99,7 @@ if (empty($_POST['submit'])) {
 
         $button_tray->addElement($reset);
 
-        $codeForm = new \XoopsThemeForm(_MD_CDM_UDF0, 'form', 'cdm_update.php');
+        $codeForm = new \XoopsThemeForm(_MD_XBSCDM_UDF0, 'form', 'cdm_update.php');
 
         $codeForm->setExtra("enctype='multipart/form-data'");
 
@@ -111,7 +111,7 @@ if (empty($_POST['submit'])) {
 
         require XOOPS_ROOT_PATH . '/footer.php';
     } else { //user has cancelled form
-        redirect_header(CDM_URL . '/index.php?codeSet=' . CDM_DEF_SET, 5, _MD_CDM_CEF14);
+        redirect_header(CDM_URL . '/index.php?codeSet=' . CDM_DEF_SET, 5, _MD_XBSCDM_CEF14);
     }//end if empty cancel
 } else { //User has submitted form
     extract($_POST);

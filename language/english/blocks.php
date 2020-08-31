@@ -18,10 +18,10 @@
 /**
  * Strings used in Code Lookup Block
  */
-define('_MB_CDM_BLOOK_SETNAME', 'Code set name');
-define('_MB_CDM_BLOOK_DEFCDVAL', 'None Selected');
-define('_MB_CDM_BLOOK_SETCHOICE', 'Select a code set');
-define('_MB_CDM_BLOOK_LANGCHOICE', 'Select a language');
-define('_MB_CDM_BLOOK_SUBMIT', 'Change Details');
-define('_MB_CDM_BLOOK_ALLOWSETCHANGE', 'Allow Set Change');
-define('_MB_CDM_BLOOK_ALLOWLANGCHANGE', 'Allow Language Change');
+define('_MB_XBSCDM_BLOOK_SETNAME', 'Code set name');
+define('_MB_XBSCDM_BLOOK_DEFCDVAL', 'None Selected');
+define('_MB_XBSCDM_BLOOK_SETCHOICE', 'Select a code set');
+define('_MB_XBSCDM_BLOOK_LANGCHOICE', 'Select a language');
+define('_MB_XBSCDM_BLOOK_SUBMIT', 'Change Details');
+define('_MB_XBSCDM_BLOOK_ALLOWSETCHANGE', 'Allow Set Change');
+define('_MB_XBSCDM_BLOOK_ALLOWLANGCHANGE', 'Allow Language Change');

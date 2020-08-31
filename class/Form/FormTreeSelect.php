@@ -67,7 +67,7 @@ class FormTreeSelect extends \XoopsFormSelect
     /**
      * Constructor
      *
-     * example: $cd_lang = new Xbscdm\Form\FormTreeSelect('LANGUAGE',_MD_CDM_CEF3,'cd_lang',CDM_DEF_LANG,1,CDM_DEF_LANG,'cd_desc');
+     * example: $cd_lang = new Xbscdm\Form\FormTreeSelect('LANGUAGE',_MD_XBSCDM_CEF3,'cd_lang',CDM_DEF_LANG,1,CDM_DEF_LANG,'cd_desc');
      *
      * @param string $setName Name of code set to create select list from
      * @param string $caption Caption

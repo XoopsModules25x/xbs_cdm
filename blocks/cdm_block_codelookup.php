@@ -102,7 +102,7 @@ function b_cdm_codelookup_show($options)
 
     $block['codesetname'] = $setName;
 
-    $block['defcdval'] = _MB_CDM_BLOOK_DEFCDVAL;
+    $block['defcdval'] = _MB_XBSCDM_BLOOK_DEFCDVAL;
 
     if ($setChange) {
         $setChoice = new Xbscdm\Form\FormSelectSet('', 'cd_set');
@@ -111,7 +111,7 @@ function b_cdm_codelookup_show($options)
 
         $block['setchange'] = $setChoice->render();
 
-        $block['setchangename'] = _MB_CDM_BLOOK_SETCHOICE;
+        $block['setchangename'] = _MB_XBSCDM_BLOOK_SETCHOICE;
     }
 
     //language change ability
@@ -121,13 +121,13 @@ function b_cdm_codelookup_show($options)
 
         $block['langchange'] = $langChoice->render();
 
-        $block['langchangename'] = _MB_CDM_BLOOK_LANGCHOICE;
+        $block['langchangename'] = _MB_XBSCDM_BLOOK_LANGCHOICE;
     }
 
     //button if required
 
     if ($setChange || $langChange) {
-        $submit = new \XoopsFormButton('', 'submit', _MB_CDM_BLOOK_SUBMIT, 'submit');
+        $submit = new \XoopsFormButton('', 'submit', _MB_XBSCDM_BLOOK_SUBMIT, 'submit');
 
         $block['submit'] = $submit->render();
     }
@@ -213,13 +213,13 @@ function b_cdm_codelookup_edit($options)
 
     $form = '<table>';
 
-    $form .= '<tr><td>' . _MB_CDM_BLOOK_SETCHOICE . '</td><td>' . $fld[0] . '</td></tr>';
+    $form .= '<tr><td>' . _MB_XBSCDM_BLOOK_SETCHOICE . '</td><td>' . $fld[0] . '</td></tr>';
 
-    $form .= '<tr><td>' . _MB_CDM_BLOOK_LANGCHOICE . '</td><td>' . $fld[1] . '</td></tr>';
+    $form .= '<tr><td>' . _MB_XBSCDM_BLOOK_LANGCHOICE . '</td><td>' . $fld[1] . '</td></tr>';
 
-    $form .= '<tr><td>' . _MB_CDM_BLOOK_ALLOWSETCHANGE . '</td><td>' . $fld[2] . '</td></tr>';
+    $form .= '<tr><td>' . _MB_XBSCDM_BLOOK_ALLOWSETCHANGE . '</td><td>' . $fld[2] . '</td></tr>';
 
-    $form .= '<tr><td>' . _MB_CDM_BLOOK_ALLOWLANGCHANGE . '</td><td>' . $fld[3] . '</td></tr>';
+    $form .= '<tr><td>' . _MB_XBSCDM_BLOOK_ALLOWLANGCHANGE . '</td><td>' . $fld[3] . '</td></tr>';
 
     $form .= '</table>';
 

@@ -49,7 +49,7 @@
 require_once __DIR__ . '/admin_header.php';
 //require_once __DIR__ . '/adminheader.php';
 //Display the admin menu
-//xoops_module_admin_menu(2, _AM_CDM_ADMENU2);
+//xoops_module_admin_menu(2, _AM_XBSCDM_ADMENU2);
 
 /**
  * To use this as a template you need to write code to display
@@ -90,7 +90,7 @@ if (isset($go)) { //edit the Code's record
 
     adminEditCode($cd_set, $cd, $cd_lang, true);
 } elseif (isset($cancel)) {
-    redirect_header(CDM_URL . '/admin/admincodes.php?gsubmit=1', 1, _AM_CDM_CODED101);
+    redirect_header(CDM_URL . '/admin/admincodes.php?gsubmit=1', 1, _AM_XBSCDM_CODED101);
 } elseif (isset($submit)) { //user has selected codeset & lang so allow choice of code to edit
     $_SESSION['cd_set']  = $cd_set; //save the code data for later user
     $_SESSION['cd_lang'] = $cd_lang;

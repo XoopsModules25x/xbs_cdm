@@ -180,7 +180,7 @@ class BaseHandler extends \XoopsObjectHandler
 
                 $obj->unsetDirty();
             } else {
-                $this->setError(-1, sprintf(_MD_CDM_ERR_2, $classname));
+                $this->setError(-1, sprintf(_MD_XBSCDM_ERR_2, $classname));
 
                 return false; //obj was not created so return False to caller.
             }
@@ -242,7 +242,7 @@ class BaseHandler extends \XoopsObjectHandler
                         return $code;
                     }
 
-                    $this->setError(-1, sprintf(_MD_CDM_ERR_1, (string)$id));
+                    $this->setError(-1, sprintf(_MD_XBSCDM_ERR_1, (string)$id));
                 } else {
                     $this->setError($this->db->errno(), $this->db->error());
                 }
@@ -250,7 +250,7 @@ class BaseHandler extends \XoopsObjectHandler
             }
             //end if - error value set in call to create()
         } else {
-            $this->setError(-1, sprintf(_MD_CDM_ERR_1, (string)$id));
+            $this->setError(-1, sprintf(_MD_XBSCDM_ERR_1, (string)$id));
         }
 
         //end if
@@ -323,7 +323,7 @@ class BaseHandler extends \XoopsObjectHandler
         $cn = mb_strtolower($this->classname);
 
         if (!get_class($obj) == $cn) {
-            $this->setError(-1, sprintf(_MD_CDM_ERR_3, get_class($obj), $cn));
+            $this->setError(-1, sprintf(_MD_XBSCDM_ERR_3, get_class($obj), $cn));
 
             return false;
         }
@@ -340,13 +340,13 @@ class BaseHandler extends \XoopsObjectHandler
                     return true;
                 }
 
-                $this->setError(-1, sprintf(_MD_CDM_ERR_1, (string)$key));
+                $this->setError(-1, sprintf(_MD_XBSCDM_ERR_1, (string)$key));
             } else {
                 $this->setError($this->db->errno(), $this->db->error());
             }
             //end if
         } else {
-            $this->setError(-1, _MD_CDM_ERR_4);
+            $this->setError(-1, _MD_XBSCDM_ERR_4);
         }
 
         //end if

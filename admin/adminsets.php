@@ -49,7 +49,7 @@
 require_once __DIR__ . '/admin_header.php';
 //require_once __DIR__ . '/adminheader.php';
 //Display the admin menu
-//xoops_module_admin_menu(1, _AM_CDM_ADMENU1);
+//xoops_module_admin_menu(1, _AM_XBSCDM_ADMENU1);
 
 /**
  * To use this as a template you need to write code to display
@@ -75,7 +75,7 @@ if (isset($submit)) { //edit the Set's record
     $_SESSION['cd_set'] = $cd_set; //save the code set for later user
     adminEditSet($cd_set, true);
 } elseif (isset($cancel)) {
-    redirect_header(CDM_URL . '/admin/adminsets.php', 1, _AM_CDM_SETED101);
+    redirect_header(CDM_URL . '/admin/adminsets.php', 1, _AM_XBSCDM_SETED101);
 } else { //Present a list of code sets to select to work with
     adminSelectSet();
 } //end if

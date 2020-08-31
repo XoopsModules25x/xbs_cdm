@@ -352,7 +352,7 @@ class CodeHandler extends BaseHandler
             $row = $this->db->fetchRow($result);
 
             if (!$row[0]) { //return value = zero so cd_set is not a set
-                $this->setError(-1, $cd_set . ' ' . _MD_CDM_ERR_6);
+                $this->setError(-1, $cd_set . ' ' . _MD_XBSCDM_ERR_6);
 
                 return false;
             }

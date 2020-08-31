@@ -59,28 +59,28 @@ $GLOBALS['xoopsOption']['template_main'] = 'cdm_index.tpl'; // Set the template 
 require XOOPS_ROOT_PATH . '/header.php';
 
 // Page titles
-$xoopsTpl->assign('lang_pagetitle', _MD_CDM_CODESVIEWPAGETITLE);
-$xoopsTpl->assign('lang_table1name', _MD_CDM_LISTTBL1NM);
-$xoopsTpl->assign('lang_table2name', _MD_CDM_LISTTBL2NM);
-$xoopsTpl->assign('lang_table1info', _MD_CDM_CODESEDITTABLE1);
+$xoopsTpl->assign('lang_pagetitle', _MD_XBSCDM_CODESVIEWPAGETITLE);
+$xoopsTpl->assign('lang_table1name', _MD_XBSCDM_LISTTBL1NM);
+$xoopsTpl->assign('lang_table2name', _MD_XBSCDM_LISTTBL2NM);
+$xoopsTpl->assign('lang_table1info', _MD_XBSCDM_CODESEDITTABLE1);
 
 //set up common table names
-$xoopsTpl->assign('lang_select', _MD_CDM_LISTDISPLAYNAME);
+$xoopsTpl->assign('lang_select', _MD_XBSCDM_LISTDISPLAYNAME);
 
 //set up column titles for code sets
-$xoopsTpl->assign('lang_tble1col1', _MD_CDM_LISTCOlSET);
-$xoopsTpl->assign('lang_tble1col2', _MD_CDM_LISTSETDESC);
-$xoopsTpl->assign('lang_tble1col3', _MD_CDM_LISTCOLFLAG);
+$xoopsTpl->assign('lang_tble1col1', _MD_XBSCDM_LISTCOlSET);
+$xoopsTpl->assign('lang_tble1col2', _MD_XBSCDM_LISTSETDESC);
+$xoopsTpl->assign('lang_tble1col3', _MD_XBSCDM_LISTCOLFLAG);
 
 //set up page and column titles for list of codes
 $lang_tble2nm = [
-    _MD_CDM_LISTCOlSET,
-    _MD_CDM_LISTCOlLANG,
-    _MD_CDM_LISTCOlCODE,
-    _MD_CDM_LISTCOlVAL,
-    _MD_CDM_LISTCOlDESC,
-    _MD_CDM_LISTCOlPRNT,
-    _MD_CDM_LISTCOLFLAG,
+    _MD_XBSCDM_LISTCOlSET,
+    _MD_XBSCDM_LISTCOlLANG,
+    _MD_XBSCDM_LISTCOlCODE,
+    _MD_XBSCDM_LISTCOlVAL,
+    _MD_XBSCDM_LISTCOlDESC,
+    _MD_XBSCDM_LISTCOlPRNT,
+    _MD_XBSCDM_LISTCOLFLAG,
 ];
 $xoopsTpl->assign('lang_tble2nm', $lang_tble2nm);
 
