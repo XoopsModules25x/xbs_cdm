@@ -319,4 +319,4 @@ require_once __DIR__ . '/functions.php';
 /**
  * Call the admin page header function
  */
-xoops_cp_header();
+//xoops_cp_header();

@@ -39,6 +39,7 @@ namespace XoopsModules\Xbscdm;
  * @copyright (c) 2004 Ashley Kitson, Great Britain
  */
 
+xoops_loadLanguage('main', 'xbscdm');
 
 /**
  * Object handler for Set
@@ -173,11 +174,11 @@ class SetHandler extends BaseHandler
     //end function get
 
     /**
-     * @param string  $set
+     * @param string|null  $set
      * @param string $lang
      * @return object
      */
-    public function getkey($set, $lang = CDM_DEF_LANG)
+    public function getKey($set = null, $lang = CDM_DEF_LANG)
     {
         return $this->get($set, $lang);
     }

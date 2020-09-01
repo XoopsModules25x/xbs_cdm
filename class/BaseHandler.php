@@ -41,6 +41,7 @@ namespace XoopsModules\Xbscdm;
  * @copyright (c) 2004 Ashley Kitson, Great Britain
  */
 
+xoops_loadLanguage('main', 'xbscdm');
 
 /**
  * Object handler for CDM objects

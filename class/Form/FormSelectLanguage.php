@@ -73,6 +73,6 @@ class FormSelectLanguage extends FormTreeSelect
      */
     public function __construct($caption, $name, $value = null, $size = 1, $lang = CDM_DEF_LANG)
     {
-        parent::__construct('LANGUAGE', $caption, $name, $value, 1, $lang);
+        parent::__construct('LANGUAGE', $caption, $name, $value, $size, $lang);
     }
 }

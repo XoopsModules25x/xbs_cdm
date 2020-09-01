@@ -98,11 +98,11 @@ class MetaHandler extends BaseHandler
     /**
      *  Return meta set object based on its unique key
      *
-     * @param string $set name of meta set
+     * @param string|null $set name of meta set
      *
      * @return Meta meta set object
      */
-    public function getkey($set)
+    public function getKey($set = null)
     {
         return $this->get($set);
     }

@@ -108,7 +108,6 @@ class CodeHandler extends BaseHandler
      *
      * @param Code $code Handle to Code object
      * @return null
-     * @return null
      */
     public function _getKids($code)
     {
@@ -213,13 +212,13 @@ class CodeHandler extends BaseHandler
      *
      * Overides ancestor
      *
-     * @param string $cd   code to retrieve
-     * @param string $set  codeset to retrieve
-     * @param string $lang language set to retrieve
+     * @param string|null $cd   code to retrieve
+     * @param string|null $set  codeset to retrieve
+     * @param string|null $lang language set to retrieve
      *
      * @return mixed if success else False.
      */
-    public function getKey($cd, $set, $lang)
+    public function getKey($cd = null, $set = null, $lang = null)
     {
         $sql = 'SELECT id FROM ' . $this->db->prefix(CDM_TBL_CODE) . ' WHERE cd = ' . $this->db->quoteString($cd) . ' AND cd_set = ' . $this->db->quoteString($set) . ' AND cd_lang = ' . $this->db->quoteString($lang);
 
