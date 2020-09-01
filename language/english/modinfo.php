@@ -37,7 +37,7 @@ define('_MI_XBSCDM_SMNAME1', 'Simple List of Codes');
 define('_MI_XBSCDM_ADMENU1', 'Code Sets');
 define('_MI_XBSCDM_ADMENU2', 'Codes');
 define('_MI_XBSCDM_ADMENU3', 'Bulk Upload');
-define('_MI_XBSCDM_ADMENU4', 'Old Help');
+define('_MI_XBSCDM_ADMENU4', 'Docu');
 
 /**#@-*/
 

@@ -11,9 +11,13 @@
     </ul>
         <br>
 
-    More Help information: <a href="<{$xoops_url}>/modules/<{$smarty.const._MI_XBSCDM_DIRNAME}>/admin/help.php" target="_blank"> XBS Help</a>
+    More Help information: <a href="<{$xoops_url}>/modules/<{$smarty.const._MI_XBSCDM_DIRNAME}>/admin/help.php" target="_blank"> XBS Docs</a>
     <br><br>
-    For Class and Function definitions see: <a href="<{$xoops_url}>/modules/<{$smarty.const._MI_XBSCDM_DIRNAME}>/docs/CDM/cdm.html" TARGET="_blank">CDM Class Documentation" </a>
+    </p>
+
+    <h4 class="odd"><span style="color: #FF0000; ">NEW: </span>CLASS &amp; FUNCTIONS API</h4><br>
+    <p class="even">
+    For <strong> Class and Function definitions </strong>  see: <a href="<{$xoops_url}>/modules/<{$smarty.const._MI_XBSCDM_DIRNAME}>/docu/index.html" TARGET="_blank">CDM Class Documentation </a>
     <br><br>
     </p>
 
