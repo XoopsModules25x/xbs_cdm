@@ -4,7 +4,8 @@
 - class autoloading (mamba)
 - added Feedback (mamba)
 - added Migrate (mamba)
-- Yoda
+- Yoda (mamba)
+- Updated API (mamba)
 
 <h5>1.54 Beta 1    [2013-10-23]</h5>
 <hr>
