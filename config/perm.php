@@ -95,7 +95,6 @@ return (object)[
     'pluginPerm' => [],
 ];
 
-
 getGroupSelectFormForItem($gperm_name, $gperm_itemid, $caption, $name, $include_anon, $size, $multiple)
 
 $permHelper->getGroupSelectFormForItem('xmnews_viewabstract', $this->getVar('category_id'), _MA_XMNEWS_PERMISSION_VIEW_ABSTRACT_THIS, 'xmnews_viewabstract_perms', true));

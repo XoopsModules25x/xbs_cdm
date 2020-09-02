@@ -10,8 +10,11 @@
  *
  * @package       CDM
  * @subpackage    Definitions
- * @author        Ashley Kitson http://xoobs.net
- * @copyright (c) 2005 Ashley Kitson, Great Britain
+ * @copyright     Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  * @access        private
  */
 

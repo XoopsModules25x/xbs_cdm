@@ -19,18 +19,20 @@
  * @author         Fernando Santos (topet05) <fernando@mastop.com.br>
  */
 
+use Xmf\Module\Admin;
 use Xmf\Request;
 use XoopsModules\Xbscdm\Common;
+use XoopsModules\Xbscdm\Common\ModuleFeedback;
 
 include __DIR__ . '/admin_header.php';
 
-$adminObject = \Xmf\Module\Admin::getInstance();
+$adminObject = Admin::getInstance();
 
-$feedback = new \XoopsModules\Xbscdm\Common\ModuleFeedback();
+$feedback = new ModuleFeedback();
 
 // It recovered the value of argument op in URL$
-$op            = Request::getString('op', 'list');
-$moduleDirName = $GLOBALS['xoopsModule']->getVar('dirname');
+$op                 = Request::getString('op', 'list');
+$moduleDirName      = $GLOBALS['xoopsModule']->getVar('dirname');
 $moduleDirNameUpper = mb_strtoupper($moduleDirName);
 xoops_loadLanguage('feedback', $moduleDirName);
 

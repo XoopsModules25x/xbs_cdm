@@ -19,12 +19,11 @@ namespace XoopsModules\Xbscdm\Common;
  * @license        GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @author         Michael Beck <mambax7@gmailc.com>
  */
-
 trait ModuleStats
 {
     /**
      * @param \XoopsModules\Xbscdm\Common\Configurator $configurator
-     * @param array $moduleStats
+     * @param array                                    $moduleStats
      * @return array
      */
     public static function getModuleStats($configurator, $moduleStats)

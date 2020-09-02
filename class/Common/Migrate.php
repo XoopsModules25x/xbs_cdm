@@ -29,16 +29,14 @@ class Migrate extends \Xmf\Database\Migrate
 
     /**
      * Migrate constructor.
-     * @param Common\Configurator $configurator
-     * @throws \RuntimeException
-     * @throws \InvalidArgumentException
+     * @param \XoopsModules\Xbscdm\Common\Configurator|null $configurator
      */
     public function __construct(Common\Configurator $configurator = null)
     {
         if (null !== $configurator) {
             $this->renameTables = $configurator->renameTables;
 
-            $moduleDirName = basename(dirname(dirname(__DIR__)));
+            $moduleDirName = basename(dirname(__DIR__, 2));
             parent::__construct($moduleDirName);
         }
     }

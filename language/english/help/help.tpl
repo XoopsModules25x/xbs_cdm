@@ -4,12 +4,12 @@
     <h4 class="odd">DESCRIPTION</h4> <br>
 
     <p class="even">The XBS Code Data Management module provides the following functionality:
-        <ul>
+    <ul>
         <li>Central repository for all codes that may be used in one or more Xoops applications</li>
         <li>Central management of code data utilising Xoops group authority mechanisms</li>
         <li>Program API based on XoopsObject that can easily extended for additional application functionality ....</li>
     </ul>
-        <br>
+    <br>
 
     More Help information: <a href="<{$xoops_url}>/modules/<{$smarty.const._MI_XBSCDM_DIRNAME}>/admin/help.php" target="_blank"> XBS Docs</a>
     <br><br>
@@ -17,8 +17,8 @@
 
     <h4 class="odd"><span style="color: #FF0000; ">NEW: </span>CLASS &amp; FUNCTIONS API</h4><br>
     <p class="even">
-    For <strong> Class and Function definitions </strong>  see: <a href="<{$xoops_url}>/modules/<{$smarty.const._MI_XBSCDM_DIRNAME}>/docu/index.html" TARGET="_blank">CDM Class Documentation </a>
-    <br><br>
+        For <strong> Class and Function definitions </strong> see: <a href="<{$xoops_url}>/modules/<{$smarty.const._MI_XBSCDM_DIRNAME}>/docu/index.html" TARGET="_blank">CDM Class Documentation </a>
+        <br><br>
     </p>
 
     <h4 class="odd">INSTALL/UNINSTALL</h4>

@@ -34,10 +34,17 @@ use XoopsModules\Xbscdm\Helper;
  */
 class SysUtility
 {
-    use VersionChecks; //checkVerXoops, checkVerPhp Traits
-    use ServerStats; // getServerStats Trait
-    use FilesManagement; // Files Management Trait
+    use VersionChecks;
 
+    //checkVerXoops, checkVerPhp Traits
+
+    use ServerStats;
+
+    // getServerStats Trait
+
+    use FilesManagement;
+
+    // Files Management Trait
 
     /**
      * Access the only instance of this class
@@ -67,7 +74,7 @@ class SysUtility
         $new_id = false;
         $table  = $GLOBALS['xoopsDB']->prefix($tableName);
         // copy content of the record you wish to clone
-        $sql = "SELECT * FROM $table WHERE $id_field='$id' ";
+        $sql       = "SELECT * FROM $table WHERE $id_field='$id' ";
         $tempTable = $GLOBALS['xoopsDB']->fetchArray($GLOBALS['xoopsDB']->query($sql), MYSQLI_ASSOC);
         if (!$tempTable) {
             exit($GLOBALS['xoopsDB']->error());
@@ -86,6 +93,59 @@ class SysUtility
         return $new_id;
     }
 
+    /**
+     * @param $text
+     * @param $form_sort
+     * @return string
+     */
+    public static function selectSorting($text, $form_sort)
+    {
+        global $start, $order, $file_cat, $sort, $xoopsModule;
+
+        $select_view   = '';
+        $moduleDirName = basename(dirname(__DIR__));
+        /** @var Helper $helper */
+        $helper = Helper::getInstance();
+
+        //$pathModIcon16 = XOOPS_URL . '/modules/' . $moduleDirName . '/' . $helper->getConfig('modicons16');
+        $pathModIcon16 = $helper->url($helper->getModule()->getInfo('modicons16'));
+
+        $select_view = '<form name="form_switch" id="form_switch" action="' . Request::getString('REQUEST_URI', '', 'SERVER') . '" method="post"><span style="font-weight: bold;">' . $text . '</span>';
+        //$sorts =  $sort ==  'asc' ? 'desc' : 'asc';
+        if ($form_sort == $sort) {
+            $sel1 = 'asc' === $order ? 'selasc.png' : 'asc.png';
+            $sel2 = 'desc' === $order ? 'seldesc.png' : 'desc.png';
+        } else {
+            $sel1 = 'asc.png';
+            $sel2 = 'desc.png';
+        }
+        $select_view .= '  <a href="' . Request::getString('SCRIPT_NAME', '', 'SERVER') . '?start=' . $start . '&sort=' . $form_sort . '&order=asc"><img src="' . $pathModIcon16 . '/' . $sel1 . '" title="ASC" alt="ASC"></a>';
+        $select_view .= '<a href="' . Request::getString('SCRIPT_NAME', '', 'SERVER') . '?start=' . $start . '&sort=' . $form_sort . '&order=desc"><img src="' . $pathModIcon16 . '/' . $sel2 . '" title="DESC" alt="DESC"></a>';
+        $select_view .= '</form>';
+
+        return $select_view;
+    }
+
+
+    /***************Blocks***************/
+    /**
+     * @param array $cats
+     * @return string
+     */
+    public static function blockAddCatSelect($cats)
+    {
+        $cat_sql = '';
+        if (is_array($cats) && !empty($cats)) {
+            $cat_sql = '(' . current($cats);
+            array_shift($cats);
+            foreach ($cats as $cat) {
+                $cat_sql .= ',' . $cat;
+            }
+            $cat_sql .= ')';
+        }
+
+        return $cat_sql;
+    }
 
     /**
      * @param $content
@@ -138,7 +198,7 @@ class SysUtility
         }
 
         $row      = $GLOBALS['xoopsDB']->fetchBoth($result);
-        $enumList = explode(',', str_replace("'", '', substr($row['COLUMN_TYPE'], 5, - 6)));
+        $enumList = explode(',', str_replace("'", '', substr($row['COLUMN_TYPE'], 5, -6)));
         return $enumList;
     }
 
@@ -298,4 +358,22 @@ class SysUtility
 
         return ($xoopsDB->getRowsNum($result) > 0);
     }
+
+    /**
+     * Function responsible for checking if a directory exists, we can also write in and create an index.html file
+     *
+     * @param string $folder The full path of the directory to check
+     */
+    public static function prepareFolder($folder)
+    {
+        try {
+            if (!@mkdir($folder) && !is_dir($folder)) {
+                throw new \RuntimeException(sprintf('Unable to create the %s directory', $folder));
+            }
+            file_put_contents($folder . '/index.html', '<script>history.go(-1);</script>');
+        } catch (\Exception $e) {
+            echo 'Caught exception: ', $e->getMessage(), "\n", '<br>';
+        }
+    }
 }
+

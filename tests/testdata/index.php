@@ -13,9 +13,14 @@
  * @since           2.5.9
  * @author          Michael Beck (aka Mamba)
  */
+
+use Xmf\Database\TableLoad;
+use Xmf\Request;
+use Xmf\Yaml;
+
 require __DIR__ . '/../../../mainfile.php';
 
-$op = \Xmf\Request::getCmd('op', '');
+$op = Request::getCmd('op', '');
 
 switch ($op) {
     case 'load':
@@ -29,10 +34,10 @@ function loadSampleData()
 {
     //    $moduleDirName = basename(dirname(dirname(__DIR__)));
     xoops_loadLanguage('comment');
-    $items = \Xmf\Yaml::readWrapped('quotes_data.yml');
+    $items = Yaml::readWrapped('quotes_data.yml');
 
-    \Xmf\Database\TableLoad::truncateTable('randomquote_quotes');
-    \Xmf\Database\TableLoad::loadTableFromArray('randomquote_quotes', $items);
+    TableLoad::truncateTable('randomquote_quotes');
+    TableLoad::loadTableFromArray('randomquote_quotes', $items);
 
     redirect_header('../admin/index.php', 1, _CM_ACTIVE);
 }

@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace XoopsModules\Xbscdm;
+
 // $Id: sqlutility.php,v 1.1 2003/09/09 18:02:01 okazu Exp $
 // sqlutility.php - defines utility class for MySQL database
 /**
@@ -112,74 +114,69 @@ class SqlUtility
                 } // end for
             } // end if (in string)
             // We are not in a string, first check for delimiter...
-            else {
-                if (';' == $char) {
-                    // if delimiter found, add the parsed part to the returned array
+            elseif (';' == $char) {
+                // if delimiter found, add the parsed part to the returned array
 
-                    $ret[] = mb_substr($sql, 0, $i);
+                $ret[] = mb_substr($sql, 0, $i);
 
-                    $sql = ltrim(mb_substr($sql, min($i + 1, $sql_len)));
+                $sql = ltrim(mb_substr($sql, min($i + 1, $sql_len)));
 
-                    $sql_len = mb_strlen($sql);
+                $sql_len = mb_strlen($sql);
 
-                    if ($sql_len) {
-                        $i = -1;
-                    } else {
-                        // The submited statement(s) end(s) here
+                if ($sql_len) {
+                    $i = -1;
+                } else {
+                    // The submited statement(s) end(s) here
 
-                        return true;
-                    }
-                } // end else if (is delimiter)
-
-                // ... then check for start of a string,...
-
-                else {
-                    if (('"' == $char) || ('\'' == $char) || ('`' == $char)) {
-                        $in_string = true;
-
-                        $string_start = $char;
-                    } // end else if (is start of string)
-
-                    // for start of a comment (and remove this comment if found)...
-
-                    else {
-                        if ('#' == $char || (' ' == $char && $i > 1 && '--' == $sql[$i - 2] . $sql[$i - 1])) {
-                            // starting position of the comment depends on the comment type
-
-                            $start_of_comment = ('#' == $sql[$i] ? $i : $i - 2);
-
-                            // if no "\n" exits in the remaining string, checks for "\r"
-
-                            // (Mac eol style)
-
-                            $end_of_comment = mb_strpos(' ' . $sql, "\012", $i + 2) ?: mb_strpos(' ' . $sql, "\015", $i + 2);
-
-                            if (!$end_of_comment) {
-                                // no eol found after '#', add the parsed part to the returned
-
-                                // array and exit
-
-                                // RMV fix for comments at end of file
-
-                                $last = trim(mb_substr($sql, 0, $i - 1));
-
-                                if (!empty($last)) {
-                                    $ret[] = $last;
-                                }
-
-                                return true;
-                            }
-
-                            $sql = mb_substr($sql, 0, $start_of_comment) . ltrim(mb_substr($sql, $end_of_comment));
-
-                            $sql_len = mb_strlen($sql);
-
-                            $i--;
-                            // end if...else
-                        }
-                    }
+                    return true;
                 }
-            } // end else if (is comment)
+            } // end else if (is delimiter)
+
+            // ... then check for start of a string,...
+
+            elseif (('"' == $char) || ('\'' == $char) || ('`' == $char)) {
+                $in_string = true;
+
+                $string_start = $char;
+            } // end else if (is start of string)
+
+            // for start of a comment (and remove this comment if found)...
+
+            elseif ('#' == $char || (' ' == $char && $i > 1 && '--' == $sql[$i - 2] . $sql[$i - 1])) {
+                // starting position of the comment depends on the comment type
+
+                $start_of_comment = ('#' == $sql[$i] ? $i : $i - 2);
+
+                // if no "\n" exits in the remaining string, checks for "\r"
+
+                // (Mac eol style)
+
+                $end_of_comment = mb_strpos(' ' . $sql, "\012", $i + 2) ?: mb_strpos(' ' . $sql, "\015", $i + 2);
+
+                if (!$end_of_comment) {
+                    // no eol found after '#', add the parsed part to the returned
+
+                    // array and exit
+
+                    // RMV fix for comments at end of file
+
+                    $last = trim(mb_substr($sql, 0, $i - 1));
+
+                    if (!empty($last)) {
+                        $ret[] = $last;
+                    }
+
+                    return true;
+                }
+
+                $sql = mb_substr($sql, 0, $start_of_comment) . ltrim(mb_substr($sql, $end_of_comment));
+
+                $sql_len = mb_strlen($sql);
+
+                $i--;
+                // end if...else
+            }
+            // end else if (is comment)
         } // end for
 
         // add any rest to the returned array

@@ -1,51 +1,34 @@
 <?php declare(strict_types=1);
 
 use XoopsModules\Xbscdm\Form;
+use XoopsModules\Xbscdm\Helper;
 
-//  ------------------------------------------------------------------------ //
-//                XOOPS - PHP Content Management System                      //
-//                    Copyright (c) 2000 XOOPS.org                           //
-//                       <https://www.xoops.org>                             //
-//  ------------------------------------------------------------------------ //
-//  This program is free software; you can redistribute it and/or modify     //
-//  it under the terms of the GNU General Public License as published by     //
-//  the Free Software Foundation; either version 2 of the License, or        //
-//  (at your option) any later version.                                      //
-//                                                                           //
-//  You may not change or alter any portion of this comment or credits       //
-//  of supporting developers from this source code or any supporting         //
-//  source code which is considered copyrighted (c) material of the          //
-//  original comment or credit authors.                                      //
-//                                                                           //
-//  This program is distributed in the hope that it will be useful,          //
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of           //
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            //
-//  GNU General Public License for more details.                             //
-//                                                                           //
-//  You should have received a copy of the GNU General Public License        //
-//  along with this program; if not, write to the Free Software              //
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-//  ------------------------------------------------------------------------ //
-// Author:    Ashley Kitson                                                  //
-// Copyright: (c) 2004, Ashley Kitson
-// URL:       http://akitson.bbcb.co.uk                                      //
-// Project:   The XOOPS Project (https://www.xoops.org/)                      //
-// Module:    Code Data Management (CDM)                                     //
-// ------------------------------------------------------------------------- //
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
 /**
  * Edit a single meta record
  *
  * Script to present a single meta data record for editing and subsequent insertion
  * to database.
  *
- * @author        Ashley Kitson http://akitson.bbcb.co.uk
  * @copyright (c) 2004, Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  * @package       CDM
  * @subpackage    User_Interface
  * @global mixed Xoops user object
  * @global array Form POST variable array
  */
-global $xoopsUser, $_POST;
+global $xoopsUser;
 
 /**
  * Must include page header
@@ -59,7 +42,7 @@ require XOOPS_ROOT_PATH . '/header.php';
 /**
  * CDM common functions
  */
-require_once CDM_PATH . '/include/functions.php';
+//require_once CDM_PATH . '/include/functions.php';
 
 //Check to see if user logged in
 if (empty($xoopsUser)) {
@@ -89,9 +72,9 @@ function dispForm()
 
     global $_GET;
 
-    $GLOBALS['xoopsOption']['template_main'] = 'cdm_meta_edit.tpl';    // Set the template page to be used
+    $GLOBALS['xoopsOption']['template_main'] = 'xbscdm_meta_edit.tpl';    // Set the template page to be used
 
-    $metaHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Meta');
+    $metaHandler = Helper::getInstance()->getHandler('Meta');
 
     $id = (string)$_GET['codeSet'];
 
@@ -120,19 +103,19 @@ function dispForm()
             $new_flag = new \XoopsFormHidden('new_flag', false);
         }//end if
 
-        $cd_type = new Xbscdm\Form\FormSelectFldType(_MD_XBSCDM_MEF2, 'cd_type', $metaData->getVar('cd_type'));
+        $cd_type = new Form\FormSelectFldType(_MD_XBSCDM_MEF2, 'cd_type', $metaData->getVar('cd_type'));
 
         $cd_len = new \XoopsFormText(_MD_XBSCDM_MEF3, 'cd_len', 3, 3, $metaData->getVar('cd_len'));
 
-        $val_type = new Xbscdm\Form\FormSelectFldType(_MD_XBSCDM_MEF4, 'val_type', $metaData->getVar('val_type'));
+        $val_type = new Form\FormSelectFldType(_MD_XBSCDM_MEF4, 'val_type', $metaData->getVar('val_type'));
 
         $val_len = new \XoopsFormText(_MD_XBSCDM_MEF5, 'val_len', 3, 3, $metaData->getVar('val_len'));
 
         $cd_desc = new \XoopsFormTextArea(_MD_XBSCDM_MEF6, 'cd_desc', $metaData->getVar('cd_desc'));
 
-        $row_flag = new Xbscdm\Form\FormSelectRstat(_MD_XBSCDM_MEF7, 'row_flag', $metaData->getVar('row_flag'), 1, $metaData->getVar('row_flag'));
+        $row_flag = new Form\FormSelectRstat(_MD_XBSCDM_MEF7, 'row_flag', $metaData->getVar('row_flag'), 1, $metaData->getVar('row_flag'));
 
-        $ret = getXoopsUser($metaData->getVar('row_uid'));
+        $ret = Utility::getXoopsUser($metaData->getVar('row_uid'));
 
         $row_uid = new \XoopsFormLabel(_MD_XBSCDM_MEF8, $ret);
 
@@ -193,7 +176,7 @@ function submitForm()
 
     extract($_POST);
 
-    $metaHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Meta');
+    $metaHandler = Helper::getInstance()->getHandler('Meta');
 
     if ($new_flag) {
         $metaData = $metaHandler->create();

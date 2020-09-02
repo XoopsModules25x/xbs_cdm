@@ -37,11 +37,16 @@
  *
  * @param mixed $codeSet
  * @param mixed $lang
- * @author        Ashley Kitson http://xoobs.net
- * @copyright (c) 2004 Ashley Kitson, Great Britain
+ * @copyright (c) 2004, Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  * @package       CDM
  * @subpackage    API_Functions
  */
+
+use XoopsModules\Xbscdm\Helper;
 
 /**
  * Return a code set
@@ -53,7 +58,7 @@
  */
 function CDMGetCodeSet($codeSet, $lang = CDM_DEF_LANG)
 {
-    $setHandler = \XoopsModules\Xbscdm\Helper::getInstance()->getHandler('Set');
+    $setHandler = Helper::getInstance()->getHandler('Set');
 
     return $setHandler->get($codeSet, $lang);
 }
