@@ -1,4 +1,45 @@
----------------------------------------
-2.33 Beta 1  2013-10-23
+<h5>2.01 Alpha 1   [WORK IN PROGRESS - NOT RELEASED]</h5>  Dev: XOOPS 2.5.11, PHP 7.4.9
+<hr>
+- namespaces (mamba)
+- class autoloading (mamba)
+- added Feedback (mamba)
+- added Migrate (mamba)
+- Yoda (mamba)
+- Updated API (mamba)
 
-- Converted to XOOPS 2.5.6 Admin GUI (Mamba)
+<h5>1.54 Beta 1    [2013-10-23]</h5>
+<hr>
+ - Converted to XOOPS 2.5.6 Admin GUI (Mamba)
+
+
+<h5>1.5</h5>
+<hr>
+- Moved all admin things to admin backend.  (chippyash)
+- Added code lookup block.  (chippyash)
+- Added html code list selector data caching to speed up display of html selector boxes via FormCountry etc.  (chippyash)
+
+
+<h5>1.4  </h5>
+<hr>
+- Maintenance release  (chippyash)
+
+
+<h5>1.3  </h5>
+<hr>
+- Added full support for hierarchical code sets  (chippyash)
+
+<h5>1.2  </h5>
+<hr>
+- Added ability to bulk upload data from SQL insert statement file  (chippyash)
+
+
+<h5>1.1 </h5>
+<hr>
+- Added cd_param field to cdm_code to add user defineable parameters for a code  (chippyash)
+
+
+<h5>1.0  (chippyash)</h5>
+<hr>
+- Basic release  (chippyash)
+
+

@@ -2,43 +2,25 @@
 
 namespace XoopsModules\Xbscdm;
 
-//  ------------------------------------------------------------------------ //
-//                XOOPS - PHP Content Management System                      //
-//                    Copyright (c) 2000 XOOPS.org                           //
-//                       <https://xoops.org>                             //
-//  ------------------------------------------------------------------------ //
-//  This program is free software; you can redistribute it and/or modify     //
-//  it under the terms of the GNU General Public License as published by     //
-//  the Free Software Foundation; either version 2 of the License, or        //
-//  (at your option) any later version.                                      //
-//                                                                           //
-//  You may not change or alter any portion of this comment or credits       //
-//  of supporting developers from this source code or any supporting         //
-//  source code which is considered copyrighted (c) material of the          //
-//  original comment or credit authors.                                      //
-//                                                                           //
-//  This program is distributed in the hope that it will be useful,          //
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of           //
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            //
-//  GNU General Public License for more details.                             //
-//                                                                           //
-//  You should have received a copy of the GNU General Public License        //
-//  along with this program; if not, write to the Free Software              //
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-//  ------------------------------------------------------------------------ //
-// Author:    Ashley Kitson                                                  //
-// Copyright: (c) 2004, Ashley Kitson
-// URL:       http://xoobs.net                                               //
-// Project:   The XOOPS Project (https://xoops.org/)                      //
-// Module:    Code Data Management (CDM)                                     //
-// ------------------------------------------------------------------------- //
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
+
 /**
  * @package       CDM
  * @subpackage    Code
- * @author        Ashley Kitson http://xoobs.net
- * @copyright (c) 2004 Ashley Kitson, Great Britain
+ * @copyright (c) 2004, Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  */
-
 
 /**
  * Object handler for Code
@@ -79,9 +61,9 @@ class CodeHandler extends BaseHandler
      *
      * @access private
      *
-     * @param int    $key      id of code
-     * @param string $row_flag =null Rowflag to match
-     * @param string $lang     =null language set to use
+     * @param int  $key      id of code
+     * @param null $row_flag =null Rowflag to match
+     * @param null $lang     =null language set to use
      *
      * @return string SQl string to retrieve data
      */
@@ -107,7 +89,6 @@ class CodeHandler extends BaseHandler
      * @access private
      *
      * @param Code $code Handle to Code object
-     * @return null
      * @return null
      */
     public function _getKids($code)
@@ -181,9 +162,9 @@ class CodeHandler extends BaseHandler
      *
      * @access private
      *
-     * @param int    $id       data item internal identifier
-     * @param string $row_flag default null (get all), Option(CDM_RSTAT_ACT, CDM_RSTAT_DEF, CDM_RSTAT_SUS)
-     * @param string $lang     default null (get all), Valid LANGUAGE code.  Will only return object of that language set
+     * @param int  $id       data item internal identifier
+     * @param null $row_flag default null (get all), Option(CDM_RSTAT_ACT, CDM_RSTAT_DEF, CDM_RSTAT_SUS)
+     * @param null $lang     default null (get all), Valid LANGUAGE code.  Will only return object of that language set
      *
      * @return object descendent of CDMBase
      */
@@ -213,13 +194,13 @@ class CodeHandler extends BaseHandler
      *
      * Overides ancestor
      *
-     * @param string $cd   code to retrieve
-     * @param string $set  codeset to retrieve
-     * @param string $lang language set to retrieve
+     * @param string|null $cd   code to retrieve
+     * @param string|null $set  codeset to retrieve
+     * @param string|null $lang language set to retrieve
      *
      * @return mixed if success else False.
      */
-    public function getKey($cd, $set, $lang)
+    public function getKey($cd = null, $set = null, $lang = null)
     {
         $sql = 'SELECT id FROM ' . $this->db->prefix(CDM_TBL_CODE) . ' WHERE cd = ' . $this->db->quoteString($cd) . ' AND cd_set = ' . $this->db->quoteString($set) . ' AND cd_lang = ' . $this->db->quoteString($lang);
 
@@ -240,7 +221,7 @@ class CodeHandler extends BaseHandler
      *
      * @access private
      *
-     * @param int $key identifier of code object
+     * @param null $key identifier of code object
      *
      * @return string the swql string
      */
@@ -352,7 +333,7 @@ class CodeHandler extends BaseHandler
             $row = $this->db->fetchRow($result);
 
             if (!$row[0]) { //return value = zero so cd_set is not a set
-                $this->setError(-1, $cd_set . ' ' . _MD_CDM_ERR_6);
+                $this->setError(-1, $cd_set . ' ' . _MD_XBSCDM_ERR_6);
 
                 return false;
             }

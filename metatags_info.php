@@ -28,11 +28,14 @@
  * Declaring no metatags array will have the effect of preventing your module being included in the
  * Metatags database, something that is reasonable if you have no user side pages in your module.
  *
- * @author     Ashley Kitson http://xoobs.net
- * @copyright  2006 Ashley Kitson, UK
- * @package    TAGS
- * @subpackage Admin
- * @version    1
+ * @copyright     Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
+ * @package       TAGS
+ * @subpackage    Admin
+ * @version       1
  */
 $metatags[1]['module']      = 'Code Data Management';
 $metatags[1]['title']       = 'View values for a code set';

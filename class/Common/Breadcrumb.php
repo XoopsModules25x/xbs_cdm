@@ -11,6 +11,7 @@ namespace XoopsModules\Xbscdm\Common;
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
+
 /**
  * Breadcrumb Class
  *
@@ -26,6 +27,7 @@ namespace XoopsModules\Xbscdm\Common;
  * $breadcrumb->addLink( 'bread 3', 'index3.php' );
  * echo $breadcrumb->render();
  */
+
 use XoopsModules\Xbscdm;
 use XoopsModules\Xbscdm\Common;
 
@@ -36,12 +38,12 @@ defined('XOOPS_ROOT_PATH') || exit('XOOPS Root Path not defined');
  */
 class Breadcrumb
 {
-    public $dirname;
+    public  $dirname;
     private $bread = [];
 
     public function __construct()
     {
-        $this->dirname = basename(dirname(dirname(__DIR__)));
+        $this->dirname = basename(dirname(__DIR__, 2));
     }
 
     /**
@@ -53,7 +55,7 @@ class Breadcrumb
     public function addLink($title = '', $link = '')
     {
         $this->bread[] = [
-            'link' => $link,
+            'link'  => $link,
             'title' => $title,
         ];
     }

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Trait XoopsModules\Xbscdm\Common\FilesManagement</title>
+
+    <link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+    <div id="menu">
+        <a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+        <div id="groups">
+            <h3>Namespaces</h3>
+            <ul>
+                <li>
+                    <a href="namespace-None.html">
+                        None </a>
+
+                </li>
+                <li class="active">
+                    <a href="namespace-XoopsModules.html">
+                        XoopsModules<span></span>
+                    </a>
+
+                    <ul>
+                        <li class="active">
+                            <a href="namespace-XoopsModules.Xbscdm.html">
+                                Xbscdm<span></span>
+                            </a>
+
+                            <ul>
+                                <li class="active">
+                                    <a href="namespace-XoopsModules.Xbscdm.Common.html">
+                                        Common </a>
+
+                                </li>
+                                <li>
+                                    <a href="namespace-XoopsModules.Xbscdm.Form.html">
+                                        Form </a>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <hr>
+
+
+        <div id="elements">
+            <h3>Classes</h3>
+            <ul>
+                <li><a href="class-XoopsModules.Xbscdm.Common.Breadcrumb.html">Breadcrumb</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.Configurator.html">Configurator</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.DBFactory.html">DBFactory</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.DBFactoryChild.html">DBFactoryChild</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.DirectoryChecker.html">DirectoryChecker</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.FileChecker.html">FileChecker</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.Migrate.html">Migrate</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.ModuleFeedback.html">ModuleFeedback</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.Resizer.html">Resizer</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.SysUtility.html">SysUtility</a></li>
+            </ul>
+
+
+            <h3>Traits</h3>
+            <ul>
+                <li class="active"><a href="class-XoopsModules.Xbscdm.Common.FilesManagement.html">FilesManagement</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.ModuleStats.html">ModuleStats</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.ServerStats.html">ServerStats</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.SingletonTrait.html">SingletonTrait</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.VersionChecks.html">VersionChecks</a></li>
+            </ul>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+    <div id="rightInner">
+        <form id="search">
+            <input type="hidden" name="cx" value="">
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="text" name="q" class="text" placeholder="Search">
+        </form>
+
+        <div id="navigation">
+            <ul>
+                <li>
+                    <a href="index.html" title="Overview"><span>Overview</span></a>
+                </li>
+                <li>
+                    <a href="namespace-XoopsModules.Xbscdm.Common.html" title="Summary of XoopsModules\Xbscdm\Common"><span>Namespace</span></a>
+                </li>
+                <li class="active">
+                    <span>Class</span></li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+                </li>
+            </ul>
+            <ul>
+            </ul>
+        </div>
+
+        <div id="content" class="class">
+            <h1>Trait FilesManagement</h1>
+
+
+            <div>
+                <h4>Direct Known Users</h4>
+                <a href="class-XoopsModules.Xbscdm.Common.SysUtility.html">XoopsModules\Xbscdm\Common\SysUtility</a>
+            </div>
+
+            <div>
+                <h4>Indirect Known Users</h4>
+                <a href="class-XoopsModules.Xbscdm.Utility.html">XoopsModules\Xbscdm\Utility</a>
+            </div>
+
+            <div class="info">
+
+
+                <b>Namespace:</b> <a href="namespace-XoopsModules.html">XoopsModules</a>\<a href="namespace-XoopsModules.Xbscdm.html">Xbscdm</a>\<a href="namespace-XoopsModules.Xbscdm.Common.html">Common</a><br>
+
+
+                <b>Copyright:</b>
+                XOOPS Project (https://xoops.org)<br>
+                <b>License:</b>
+                <a href="http://www.fsf.org/copyleft/gpl.html">GNU public license</a><br>
+                <b>Author:</b>
+                mamba <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x6d;&#x61;&#x6d;&#x62;&#x61;&#x78;&#x37;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;">&#x6d;&#x61;&#x6d;&#x62;&#x61;&#x78;&#x37;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a><br>
+                <b>Located at</b> <a href="source-class-XoopsModules.Xbscdm.Common.FilesManagement.html#15-291" title="Go to source code">lass/Common/FilesManagement.php</a>
+                <br>
+            </div>
+
+
+            <table class="summary methods" id="methods">
+                <caption>Methods summary</caption>
+                <tr data-order="createFolder" id="_createFolder">
+
+                    <td class="attributes"><code>
+                        public static
+
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_createFolder">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.FilesManagement.html#22-43" title="Go to source code">createFolder</a>( <span>string <var>$folder</var></span> )</code>
+
+                            <div class="description short">
+                                <p>Function responsible for checking if a directory exists, we can also write in and create an index.html file</p>
+                            </div>
+
+                            <div class="description detailed hidden">
+                                <p>Function responsible for checking if a directory exists, we can also write in and create an index.html file</p>
+
+
+                                <h4>Parameters</h4>
+                                <div class="list">
+                                    <dl>
+                                        <dt><var>$folder</var></dt>
+                                        <dd>The full path of the directory to check</dd>
+                                    </dl>
+                                </div>
+
+
+                                <h4>Throws</h4>
+                                <div class="list">
+                                    RuntimeException
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="copyFile" id="_copyFile">
+
+                    <td class="attributes"><code>
+                        public static
+
+                        boolean
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_copyFile">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.FilesManagement.html#45-53" title="Go to source code">copyFile</a>( <span> <var>$file</var></span>, <span> <var>$folder</var></span> )</code>
+
+                            <div class="description short">
+
+                            </div>
+
+                            <div class="description detailed hidden">
+
+
+                                <h4>Parameters</h4>
+                                <div class="list">
+                                    <dl>
+                                        <dt><var>$file</var></dt>
+                                        <dd></dd>
+                                        <dt><var>$folder</var></dt>
+                                        <dd></dd>
+                                    </dl>
+                                </div>
+
+                                <h4>Returns</h4>
+                                <div class="list">
+                                    boolean
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="recurseCopy" id="_recurseCopy">
+
+                    <td class="attributes"><code>
+                        public static
+
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_recurseCopy">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.FilesManagement.html#55-76" title="Go to source code">recurseCopy</a>( <span> <var>$src</var></span>, <span> <var>$dst</var></span> )</code>
+
+                            <div class="description short">
+
+                            </div>
+
+                            <div class="description detailed hidden">
+
+
+                                <h4>Parameters</h4>
+                                <div class="list">
+                                    <dl>
+                                        <dt><var>$src</var></dt>
+                                        <dd></dd>
+                                        <dt><var>$dst</var></dt>
+                                        <dd></dd>
+                                    </dl>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="xcopy" id="_xcopy">
+
+                    <td class="attributes"><code>
+                        public static
+
+                        boolean
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_xcopy">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.FilesManagement.html#78-122" title="Go to source code">xcopy</a>( <span>string <var>$source</var></span>, <span>string <var>$dest</var></span> )</code>
+
+                            <div class="description short">
+                                <p>Copy a file, or recursively copy a folder and its contents</p>
+                            </div>
+
+                            <div class="description detailed hidden">
+                                <p>Copy a file, or recursively copy a folder and its contents</p>
+
+
+                                <h4>Parameters</h4>
+                                <div class="list">
+                                    <dl>
+                                        <dt><var>$source</var></dt>
+                                        <dd>Source path</dd>
+                                        <dt><var>$dest</var></dt>
+                                        <dd>Destination path</dd>
+                                    </dl>
+                                </div>
+
+                                <h4>Returns</h4>
+                                <div class="list">
+                                    boolean<br>Returns true on success, false on failure
+                                </div>
+
+
+                                <h4>Author</h4>
+                                <div class="list">
+                                    Aidan Lister <a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#x61;i&#100;&#97;&#x6e;&#x40;&#112;&#104;&#x70;&#x2e;&#110;&#101;&#x74;">&#x61;i&#100;&#97;&#x6e;&#x40;&#112;&#104;&#x70;&#x2e;&#110;&#101;&#x74;</a><br>
+                                </div>
+                                <h4>Version</h4>
+                                <div class="list">
+                                    1.0.1<br>
+                                </div>
+                                <h4>Link</h4>
+                                <div class="list">
+                                    <a href="http://aidanlister.com/2004/04/recursively-copying-directories-in-php/">http://aidanlister.com/2004/04/recursively-copying-directories-in-php/</a><br>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="deleteDirectory" id="_deleteDirectory">
+
+                    <td class="attributes"><code>
+                        public static
+
+                        boolean
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_deleteDirectory">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.FilesManagement.html#124-168" title="Go to source code">deleteDirectory</a>( <span>string <var>$src</var></span> )</code>
+
+                            <div class="description short">
+                                <p>Remove files and (sub)directories</p>
+                            </div>
+
+                            <div class="description detailed hidden">
+                                <p>Remove files and (sub)directories</p>
+
+
+                                <h4>Parameters</h4>
+                                <div class="list">
+                                    <dl>
+                                        <dt><var>$src</var></dt>
+                                        <dd>source directory to delete</dd>
+                                    </dl>
+                                </div>
+
+                                <h4>Returns</h4>
+                                <div class="list">
+                                    boolean<br>true on success
+                                </div>
+
+
+                                <h4>Uses</h4>
+                                <div class="list">
+                                    \Xmf\Module\Helper::getHelper()<br>
+                                    \Xmf\Module\Helper::isUserAdmin()<br>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="rrmdir" id="_rrmdir">
+
+                    <td class="attributes"><code>
+                        public static
+
+                        boolean
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_rrmdir">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.FilesManagement.html#170-209" title="Go to source code">rrmdir</a>( <span>string <var>$src</var></span> )</code>
+
+                            <div class="description short">
+                                <p>Recursively remove directory</p>
+                            </div>
+
+                            <div class="description detailed hidden">
+                                <p>Recursively remove directory</p>
+
+
+                                <h4>Parameters</h4>
+                                <div class="list">
+                                    <dl>
+                                        <dt><var>$src</var></dt>
+                                        <dd>directory to remove (delete)</dd>
+                                    </dl>
+                                </div>
+
+                                <h4>Returns</h4>
+                                <div class="list">
+                                    boolean<br>true on success
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="rmove" id="_rmove">
+
+                    <td class="attributes"><code>
+                        public static
+
+                        boolean
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_rmove">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.FilesManagement.html#211-249" title="Go to source code">rmove</a>( <span>string <var>$src</var></span>, <span>string <var>$dest</var></span> )</code>
+
+                            <div class="description short">
+                                <p>Recursively move files from one directory to another</p>
+                            </div>
+
+                            <div class="description detailed hidden">
+                                <p>Recursively move files from one directory to another</p>
+
+
+                                <h4>Parameters</h4>
+                                <div class="list">
+                                    <dl>
+                                        <dt><var>$src</var></dt>
+                                        <dd>
+                                            <ul>
+                                                <li>Source of files being moved</li>
+                                            </ul>
+                                        </dd>
+                                        <dt><var>$dest</var></dt>
+                                        <dd>
+                                            <ul>
+                                                <li>Destination of files being moved</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                </div>
+
+                                <h4>Returns</h4>
+                                <div class="list">
+                                    boolean<br>true on success
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="rcopy" id="_rcopy">
+
+                    <td class="attributes"><code>
+                        public static
+
+                        boolean
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_rcopy">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.FilesManagement.html#251-290" title="Go to source code">rcopy</a>( <span>string <var>$src</var></span>, <span>string <var>$dest</var></span> )</code>
+
+                            <div class="description short">
+                                <p>Recursively copy directories and files from one directory to another</p>
+                            </div>
+
+                            <div class="description detailed hidden">
+                                <p>Recursively copy directories and files from one directory to another</p>
+
+
+                                <h4>Parameters</h4>
+                                <div class="list">
+                                    <dl>
+                                        <dt><var>$src</var></dt>
+                                        <dd>
+                                            <ul>
+                                                <li>Source of files being moved</li>
+                                            </ul>
+                                        </dd>
+                                        <dt><var>$dest</var></dt>
+                                        <dd>
+                                            <ul>
+                                                <li>Destination of files being moved</li>
+                                            </ul>
+                                        </dd>
+                                    </dl>
+                                </div>
+
+                                <h4>Returns</h4>
+                                <div class="list">
+                                    boolean<br>true on success
+                                </div>
+
+
+                                <h4>Uses</h4>
+                                <div class="list">
+                                    \Xmf\Module\Helper::getHelper()<br>
+                                    \Xmf\Module\Helper::isUserAdmin()<br>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+
+        <div id="footer">
+            API documentation generated by <a href="http://apigen.org">ApiGen</a>
+        </div>
+    </div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

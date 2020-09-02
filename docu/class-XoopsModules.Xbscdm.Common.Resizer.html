@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Class XoopsModules\Xbscdm\Common\Resizer</title>
+
+    <link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+    <div id="menu">
+        <a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+        <div id="groups">
+            <h3>Namespaces</h3>
+            <ul>
+                <li>
+                    <a href="namespace-None.html">
+                        None </a>
+
+                </li>
+                <li class="active">
+                    <a href="namespace-XoopsModules.html">
+                        XoopsModules<span></span>
+                    </a>
+
+                    <ul>
+                        <li class="active">
+                            <a href="namespace-XoopsModules.Xbscdm.html">
+                                Xbscdm<span></span>
+                            </a>
+
+                            <ul>
+                                <li class="active">
+                                    <a href="namespace-XoopsModules.Xbscdm.Common.html">
+                                        Common </a>
+
+                                </li>
+                                <li>
+                                    <a href="namespace-XoopsModules.Xbscdm.Form.html">
+                                        Form </a>
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <hr>
+
+
+        <div id="elements">
+            <h3>Classes</h3>
+            <ul>
+                <li><a href="class-XoopsModules.Xbscdm.Common.Breadcrumb.html">Breadcrumb</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.Configurator.html">Configurator</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.DBFactory.html">DBFactory</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.DBFactoryChild.html">DBFactoryChild</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.DirectoryChecker.html">DirectoryChecker</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.FileChecker.html">FileChecker</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.Migrate.html">Migrate</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.ModuleFeedback.html">ModuleFeedback</a></li>
+                <li class="active"><a href="class-XoopsModules.Xbscdm.Common.Resizer.html">Resizer</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.SysUtility.html">SysUtility</a></li>
+            </ul>
+
+
+            <h3>Traits</h3>
+            <ul>
+                <li><a href="class-XoopsModules.Xbscdm.Common.FilesManagement.html">FilesManagement</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.ModuleStats.html">ModuleStats</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.ServerStats.html">ServerStats</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.SingletonTrait.html">SingletonTrait</a></li>
+                <li><a href="class-XoopsModules.Xbscdm.Common.VersionChecks.html">VersionChecks</a></li>
+            </ul>
+
+
+        </div>
+    </div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+    <div id="rightInner">
+        <form id="search">
+            <input type="hidden" name="cx" value="">
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="text" name="q" class="text" placeholder="Search">
+        </form>
+
+        <div id="navigation">
+            <ul>
+                <li>
+                    <a href="index.html" title="Overview"><span>Overview</span></a>
+                </li>
+                <li>
+                    <a href="namespace-XoopsModules.Xbscdm.Common.html" title="Summary of XoopsModules\Xbscdm\Common"><span>Namespace</span></a>
+                </li>
+                <li class="active">
+                    <span>Class</span></li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+                </li>
+            </ul>
+            <ul>
+            </ul>
+        </div>
+
+        <div id="content" class="class">
+            <h1>Class Resizer</h1>
+
+
+            <div class="description">
+                <p>Image resizer class for xoops</p>
+            </div>
+
+
+            <div class="info">
+
+
+                <b>Namespace:</b> <a href="namespace-XoopsModules.html">XoopsModules</a>\<a href="namespace-XoopsModules.Xbscdm.html">Xbscdm</a>\<a href="namespace-XoopsModules.Xbscdm.Common.html">Common</a><br>
+                <b>Package:</b> XOOPS<br>
+
+                <b>Copyright:</b>
+                2000-2020 XOOPS Project (https://xoops.org)<br>
+                <b>License:</b>
+                <a href="GPL">2.0 or later</a><br>
+                <b>Author:</b>
+                Goffy - Wedega - Email:<a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;:&#x77;&#x65;&#x62;&#109;&#97;&#115;t&#x65;&#x72;&#x40;&#119;&#101;&#100;e&#x67;&#x61;&#x2e;&#99;&#111;&#109;">&#x77;&#x65;&#x62;&#109;&#97;&#115;t&#x65;&#x72;&#x40;&#119;&#101;&#100;e&#x67;&#x61;&#x2e;&#99;&#111;&#109;</a>
+                - Website:<a href="https://wedega.com">https://wedega.com</a><br>
+                <b>Since:</b>
+                1.0<br>
+                <b>Min_xoops:</b>
+                2.5.9<br>
+                <b>Located at</b> <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#15-293" title="Go to source code">lass/Common/Resizer.php</a>
+                <br>
+            </div>
+
+
+            <table class="summary methods" id="methods">
+                <caption>Methods summary</caption>
+                <tr data-order="resizeImage" id="_resizeImage">
+
+                    <td class="attributes"><code>
+                        public
+
+                        string|boolean
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_resizeImage">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#38-113" title="Go to source code">resizeImage</a>( )</code>
+
+                            <div class="description short">
+                                <p>resize image if size exceed given width/height</p>
+                            </div>
+
+                            <div class="description detailed hidden">
+                                <p>resize image if size exceed given width/height</p>
+
+
+                                <h4>Returns</h4>
+                                <div class="list">
+                                    string|boolean
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="resizeAndCrop" id="_resizeAndCrop">
+
+                    <td class="attributes"><code>
+                        public
+
+                        boolean|string
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_resizeAndCrop">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#115-182" title="Go to source code">resizeAndCrop</a>( )</code>
+
+                            <div class="description short">
+
+                            </div>
+
+                            <div class="description detailed hidden">
+
+
+                                <h4>Returns</h4>
+                                <div class="list">
+                                    boolean|string
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="mergeImage" id="_mergeImage">
+
+                    <td class="attributes"><code>
+                        public
+
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_mergeImage">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#184-240" title="Go to source code">mergeImage</a>( )</code>
+
+                            <div class="description short">
+
+                            </div>
+
+                            <div class="description detailed hidden">
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="rotateImage" id="_rotateImage">
+
+                    <td class="attributes"><code>
+                        public
+
+                        boolean|string
+
+                    </code>
+                    </td>
+
+                    <td class="name">
+                        <div>
+                            <a class="anchor" href="#_rotateImage">#</a>
+                            <code><a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#242-292" title="Go to source code">rotateImage</a>( )</code>
+
+                            <div class="description short">
+
+                            </div>
+
+                            <div class="description detailed hidden">
+
+
+                                <h4>Returns</h4>
+                                <div class="list">
+                                    boolean|string
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="summary properties" id="properties">
+                <caption>Properties summary</caption>
+                <tr data-order="sourceFile" id="$sourceFile">
+                    <td class="attributes"><code>
+                        public
+                        string
+                    </code></td>
+
+                    <td class="name">
+                        <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#27" title="Go to source code"><var>$sourceFile</var></a>
+
+                        <div class="description short">
+
+                        </div>
+
+                        <div class="description detailed hidden">
+
+
+                        </div>
+                    </td>
+                    <td class="value">
+                        <div>
+                            <a href="#$sourceFile" class="anchor">#</a>
+                            <code><span class="php-quote">''</span></code>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="endFile" id="$endFile">
+                    <td class="attributes"><code>
+                        public
+                        string
+                    </code></td>
+
+                    <td class="name">
+                        <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#28" title="Go to source code"><var>$endFile</var></a>
+
+                        <div class="description short">
+
+                        </div>
+
+                        <div class="description detailed hidden">
+
+
+                        </div>
+                    </td>
+                    <td class="value">
+                        <div>
+                            <a href="#$endFile" class="anchor">#</a>
+                            <code><span class="php-quote">''</span></code>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="maxWidth" id="$maxWidth">
+                    <td class="attributes"><code>
+                        public
+                        integer
+                    </code></td>
+
+                    <td class="name">
+                        <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#29" title="Go to source code"><var>$maxWidth</var></a>
+
+                        <div class="description short">
+
+                        </div>
+
+                        <div class="description detailed hidden">
+
+
+                        </div>
+                    </td>
+                    <td class="value">
+                        <div>
+                            <a href="#$maxWidth" class="anchor">#</a>
+                            <code><span class="php-num">0</span></code>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="maxHeight" id="$maxHeight">
+                    <td class="attributes"><code>
+                        public
+                        integer
+                    </code></td>
+
+                    <td class="name">
+                        <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#30" title="Go to source code"><var>$maxHeight</var></a>
+
+                        <div class="description short">
+
+                        </div>
+
+                        <div class="description detailed hidden">
+
+
+                        </div>
+                    </td>
+                    <td class="value">
+                        <div>
+                            <a href="#$maxHeight" class="anchor">#</a>
+                            <code><span class="php-num">0</span></code>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="imageMimetype" id="$imageMimetype">
+                    <td class="attributes"><code>
+                        public
+                        string
+                    </code></td>
+
+                    <td class="name">
+                        <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#31" title="Go to source code"><var>$imageMimetype</var></a>
+
+                        <div class="description short">
+
+                        </div>
+
+                        <div class="description detailed hidden">
+
+
+                        </div>
+                    </td>
+                    <td class="value">
+                        <div>
+                            <a href="#$imageMimetype" class="anchor">#</a>
+                            <code><span class="php-quote">''</span></code>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="jpgQuality" id="$jpgQuality">
+                    <td class="attributes"><code>
+                        public
+                        integer
+                    </code></td>
+
+                    <td class="name">
+                        <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#32" title="Go to source code"><var>$jpgQuality</var></a>
+
+                        <div class="description short">
+
+                        </div>
+
+                        <div class="description detailed hidden">
+
+
+                        </div>
+                    </td>
+                    <td class="value">
+                        <div>
+                            <a href="#$jpgQuality" class="anchor">#</a>
+                            <code><span class="php-num">90</span></code>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="mergeType" id="$mergeType">
+                    <td class="attributes"><code>
+                        public
+                        integer
+                    </code></td>
+
+                    <td class="name">
+                        <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#33" title="Go to source code"><var>$mergeType</var></a>
+
+                        <div class="description short">
+
+                        </div>
+
+                        <div class="description detailed hidden">
+
+
+                        </div>
+                    </td>
+                    <td class="value">
+                        <div>
+                            <a href="#$mergeType" class="anchor">#</a>
+                            <code><span class="php-num">0</span></code>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="mergePos" id="$mergePos">
+                    <td class="attributes"><code>
+                        public
+                        integer
+                    </code></td>
+
+                    <td class="name">
+                        <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#34" title="Go to source code"><var>$mergePos</var></a>
+
+                        <div class="description short">
+
+                        </div>
+
+                        <div class="description detailed hidden">
+
+
+                        </div>
+                    </td>
+                    <td class="value">
+                        <div>
+                            <a href="#$mergePos" class="anchor">#</a>
+                            <code><span class="php-num">0</span></code>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="degrees" id="$degrees">
+                    <td class="attributes"><code>
+                        public
+                        integer
+                    </code></td>
+
+                    <td class="name">
+                        <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#35" title="Go to source code"><var>$degrees</var></a>
+
+                        <div class="description short">
+
+                        </div>
+
+                        <div class="description detailed hidden">
+
+
+                        </div>
+                    </td>
+                    <td class="value">
+                        <div>
+                            <a href="#$degrees" class="anchor">#</a>
+                            <code><span class="php-num">0</span></code>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-order="error" id="$error">
+                    <td class="attributes"><code>
+                        public
+                        string
+                    </code></td>
+
+                    <td class="name">
+                        <a href="source-class-XoopsModules.Xbscdm.Common.Resizer.html#36" title="Go to source code"><var>$error</var></a>
+
+                        <div class="description short">
+
+                        </div>
+
+                        <div class="description detailed hidden">
+
+
+                        </div>
+                    </td>
+                    <td class="value">
+                        <div>
+                            <a href="#$error" class="anchor">#</a>
+                            <code><span class="php-quote">''</span></code>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+
+        <div id="footer">
+            API documentation generated by <a href="http://apigen.org">ApiGen</a>
+        </div>
+    </div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

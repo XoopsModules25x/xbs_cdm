@@ -2,43 +2,27 @@
 
 namespace XoopsModules\Xbscdm;
 
-//  ------------------------------------------------------------------------ //
-//                XOOPS - PHP Content Management System                      //
-//                    Copyright (c) 2000 XOOPS.org                           //
-//                       <https://xoops.org>                             //
-//  ------------------------------------------------------------------------ //
-//  This program is free software; you can redistribute it and/or modify     //
-//  it under the terms of the GNU General Public License as published by     //
-//  the Free Software Foundation; either version 2 of the License, or        //
-//  (at your option) any later version.                                      //
-//                                                                           //
-//  You may not change or alter any portion of this comment or credits       //
-//  of supporting developers from this source code or any supporting         //
-//  source code which is considered copyrighted (c) material of the          //
-//  original comment or credit authors.                                      //
-//                                                                           //
-//  This program is distributed in the hope that it will be useful,          //
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of           //
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            //
-//  GNU General Public License for more details.                             //
-//                                                                           //
-//  You should have received a copy of the GNU General Public License        //
-//  along with this program; if not, write to the Free Software              //
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-//  ------------------------------------------------------------------------ //
-// Author:    Ashley Kitson                                                  //
-// Copyright: (c) 2004, Ashley Kitson
-// URL:       http://xoobs.net                                               //
-// Project:   The XOOPS Project (https://xoops.org/)                      //
-// Module:    Code Data Management (CDM)                                     //
-// ------------------------------------------------------------------------- //
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
+
 /**
  * @package       CDM
  * @subpackage    Set
- * @author        Ashley Kitson http://xoobs.net
- * @copyright (c) 2004 Ashley Kitson, Great Britain
+ * @copyright (c) 2004, Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  */
 
+xoops_loadLanguage('main', 'xbscdm');
 
 /**
  * Object handler for Set
@@ -56,7 +40,7 @@ class SetHandler extends BaseHandler
     public function __construct(\XoopsDatabase $db)
     {
         parent::__construct($db); //call ancestor constructor
-        $this->classname = 'cdmset'; //set name of object that this handler handles
+        $this->classname = Set::class; //set name of object that this handler handles
     }
 
     /**
@@ -79,8 +63,8 @@ class SetHandler extends BaseHandler
      * retrieve 'Active' data.
      *
      * @param string $set           The code set to load
-     * @param string $meta_row_flag Option(CDM_RSTAT_ACT, ..SUS, ..DEF)  Applies only to the meta data
-     * @param string $code_row_flag Option(CDM_RSTAT_ACT, ..SUS, ..DEF)  Applies to the code data
+     * @param null   $meta_row_flag Option(CDM_RSTAT_ACT, ..SUS, ..DEF)  Applies only to the meta data
+     * @param null   $code_row_flag Option(CDM_RSTAT_ACT, ..SUS, ..DEF)  Applies to the code data
      *
      * @param null   $lang
      * @return bool Set if OK, else FALSE on failure
@@ -133,22 +117,22 @@ class SetHandler extends BaseHandler
                             return $codeset;
                         }   //set error code no data returned
 
-                        $this->setError(-1, sprintf(_MD_CDM_ERR_1, (string)$set));
+                        $this->setError(-1, sprintf(_MD_XBSCDM_ERR_1, (string)$set));
                         // end if number of codes > 0
                     } else { //set database error code
                         $this->setError($this->db->errno(), $this->db->error());
                     }
                     //end if $result
                 } else { //set error code unable to instantiate Meta
-                    $this->setError(-1, sprintf(_MD_CDM_ERR_2, 'Meta'));
+                    $this->setError(-1, sprintf(_MD_XBSCDM_ERR_2, 'Meta'));
                 }
                 //end if $meta
             } else { //set error code unable to instantiate Code
-                $this->setError(-1, sprintf(_MD_CDM_ERR_2, 'Code'));
+                $this->setError(-1, sprintf(_MD_XBSCDM_ERR_2, 'Code'));
             }
             //end if $code
         } else { //set error code $set not valid
-            $this->setError(-1, _MD_CDM_ERR_4);
+            $this->setError(-1, _MD_XBSCDM_ERR_4);
         }
 
         //end if !empty(set)
@@ -173,11 +157,11 @@ class SetHandler extends BaseHandler
     //end function get
 
     /**
-     * @param string  $set
-     * @param string $lang
+     * @param string|null $set
+     * @param string      $lang
      * @return object
      */
-    public function getkey($set, $lang = CDM_DEF_LANG)
+    public function getKey($set = null, $lang = CDM_DEF_LANG)
     {
         return $this->get($set, $lang);
     }
@@ -187,6 +171,8 @@ class SetHandler extends BaseHandler
     /**
      * Function reload  - overwrite ancestor.  Does nothing
      *
+     * @param      $obj
+     * @param null $key
      * @return false
      */
     public function reload($obj, $key = null)
@@ -198,6 +184,7 @@ class SetHandler extends BaseHandler
      * Function insert - Does nothing.  Use getCode and getMeta to instantiate CDM objects and then
      * insert (save) them individually
      *
+     * @param \XoopsObject $obj
      * @return false
      */
     public function insert(\XoopsObject $obj)
@@ -307,7 +294,7 @@ class SetHandler extends BaseHandler
         }
 
         //get the language codes and values
-        $str = mb_substr($str, 0, mb_strlen($str) - 1); //get rid of trailing comma
+        $str = mb_substr($str, 0, -1); //get rid of trailing comma
         $str .= ')';
 
         $sql = sprintf('SELECT cd,cd_value FROM %s WHERE cd_set= %s AND cd IN %s AND row_flag = %s', $this->db->prefix(CDM_TBL_CODE), $this->db->quoteString('LANGUAGE'), $str, $this->db->quoteString(CDM_RSTAT_ACT));

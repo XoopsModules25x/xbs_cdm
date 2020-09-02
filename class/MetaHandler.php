@@ -2,43 +2,25 @@
 
 namespace XoopsModules\Xbscdm;
 
-//  ------------------------------------------------------------------------ //
-//                XOOPS - PHP Content Management System                      //
-//                    Copyright (c) 2000 XOOPS.org                           //
-//                       <https://xoops.org>                             //
-//  ------------------------------------------------------------------------ //
-//  This program is free software; you can redistribute it and/or modify     //
-//  it under the terms of the GNU General Public License as published by     //
-//  the Free Software Foundation; either version 2 of the License, or        //
-//  (at your option) any later version.                                      //
-//                                                                           //
-//  You may not change or alter any portion of this comment or credits       //
-//  of supporting developers from this source code or any supporting         //
-//  source code which is considered copyrighted (c) material of the          //
-//  original comment or credit authors.                                      //
-//                                                                           //
-//  This program is distributed in the hope that it will be useful,          //
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of           //
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            //
-//  GNU General Public License for more details.                             //
-//                                                                           //
-//  You should have received a copy of the GNU General Public License        //
-//  along with this program; if not, write to the Free Software              //
-//  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-//  ------------------------------------------------------------------------ //
-// Author:    Ashley Kitson                                                  //
-// Copyright: (c) 2004, Ashley Kitson
-// URL:       http://xoobs.net                                               //
-// Project:   The XOOPS Project (https://xoops.org/)                      //
-// Module:    Code Data Management (CDM)                                     //
-// ------------------------------------------------------------------------- //
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ */
+
 /**
  * @package       CDM
  * @subpackage    Meta
- * @author        Ashley Kitson http://xoobs.net
- * @copyright (c) 2004 Ashley Kitson, Great Britain
+ * @copyright (c) 2004, Ashley Kitson
+ * @copyright     XOOPS Project https://xoops.org/
+ * @license       GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author        Ashley Kitson http://akitson.bbcb.co.uk
+ * @author        XOOPS Development Team
  */
-
 
 /**
  * Object handler for Meta
@@ -56,7 +38,7 @@ class MetaHandler extends BaseHandler
     public function __construct(\XoopsDatabase $db)
     {
         parent::__construct($db); //call ancestor constructor
-        $this->classname = 'cdmmeta'; //set name of object that this handler handles
+        $this->classname = Meta::class; //set name of object that this handler handles
     }
 
     /**
@@ -76,9 +58,9 @@ class MetaHandler extends BaseHandler
      *
      * @access private
      *
-     * @param int    $id       id of meta set
-     * @param string $row_flag =null Rowflag to match
-     * @param string $lang     =null language set to use
+     * @param int  $id       id of meta set
+     * @param null $row_flag =null Rowflag to match
+     * @param null $lang     =null language set to use
      *
      * @return string SQl string to retrieve data
      */
@@ -98,11 +80,11 @@ class MetaHandler extends BaseHandler
     /**
      *  Return meta set object based on its unique key
      *
-     * @param string $set name of meta set
+     * @param string|null $set name of meta set
      *
      * @return Meta meta set object
      */
-    public function getkey($set)
+    public function getKey($set = null)
     {
         return $this->get($set);
     }
@@ -112,7 +94,7 @@ class MetaHandler extends BaseHandler
      *
      * @access private
      *
-     * @param int $key identifier of code object
+     * @param null $key identifier of code object
      *
      * @return string the swql string
      */
@@ -219,7 +201,7 @@ class MetaHandler extends BaseHandler
     /**
      * Returns a list of available meta sets + data
      *
-     * @param default $row_flag = null = list all rows, else give a row_flag status
+     * @param null $row_flag = null = list all rows, else give a row_flag status
      *
      * @return array array of arrays containing data for each meta set
      */
@@ -229,7 +211,7 @@ class MetaHandler extends BaseHandler
 
         $sql = (empty($row_flag) ? $sql : $sql . ' WHERE row_flag = ' . $this->db->quoteString($row_flag));
 
-        $result = $this->db->query($sql) || exit('Error reading database');
+        $result = $this->db->query($sql) or exit('Error reading database');
 
         $ret = [];
 

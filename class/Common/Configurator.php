@@ -17,8 +17,6 @@ namespace XoopsModules\Xbscdm\Common;
  * @copyright   XOOPS Project (https://xoops.org)
  * @license     http://www.fsf.org/copyleft/gpl.html GNU public license
  * @author      XOOPS Development Team
- * @package     Publisher
- * @since       1.05
  */
 
 // require_once dirname(dirname(__DIR__)) . '/include/common.php';
@@ -46,13 +44,13 @@ class Configurator
      */
     public function __construct()
     {
-//        $moduleDirName      = basename(dirname(dirname(__DIR__)));
-//        $moduleDirNameUpper = mb_strtoupper($moduleDirName);
+        //        $moduleDirName      = basename(dirname(dirname(__DIR__)));
+        //        $moduleDirNameUpper = mb_strtoupper($moduleDirName);
 
-//        require dirname(dirname(__DIR__)) . '/config/config.php';
-//        $config = getConfig();
+        //        require dirname(dirname(__DIR__)) . '/config/config.php';
+        //        $config = getConfig();
 
-        $config = include dirname(dirname(__DIR__)) . '/config/config.php';
+        $config = include dirname(__DIR__, 2) . '/config/config.php';
 
         $this->name            = $config->name;
         $this->paths           = $config->paths;
@@ -66,8 +64,7 @@ class Configurator
         $this->moduleStats     = $config->moduleStats;
         $this->modCopyright    = $config->modCopyright;
 
-        $this->icons = include dirname(dirname(__DIR__)) . '/config/icons.php';
-        $this->paths = include dirname(dirname(__DIR__)) . '/config/paths.php';
-
+        $this->icons = include dirname(__DIR__, 2) . '/config/icons.php';
+        $this->paths = include dirname(__DIR__, 2) . '/config/paths.php';
     }
 }

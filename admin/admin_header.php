@@ -17,26 +17,29 @@
  * @since
  * @author       XOOPS Development Team
  */
+
+use Xmf\Module\Admin;
+use XoopsModules\Xbscdm\Helper;
+
 include dirname(__DIR__) . '/preloads/autoloader.php';
 
-require  dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require dirname(__DIR__, 3) . '/include/cp_header.php';
 require $GLOBALS['xoops']->path('www/class/xoopsformloader.php');
-require  dirname(__DIR__) . '/include/common.php';
+require dirname(__DIR__) . '/include/common.php';
 
 $moduleDirName = basename(dirname(__DIR__));
 
 /** @var \XoopsModules\Xbscdm\Helper $helper */
-$helper = \XoopsModules\Xbscdm\Helper::getInstance();
+$helper = Helper::getInstance();
 
 /** @var \Xmf\Module\Admin $adminObject */
-$adminObject = \Xmf\Module\Admin::getInstance();
+$adminObject = Admin::getInstance();
 
 // Load language files
 $helper->loadLanguage('admin');
 $helper->loadLanguage('modinfo');
 $helper->loadLanguage('common');
 $helper->loadLanguage('main');
-
 
 /**
  * Include CDM constant defines
@@ -46,11 +49,11 @@ require_once dirname(__DIR__) . '/include/defines.php';
 /**
  * CDM functions
  */
-require_once CDM_PATH . '/include/functions.php';
+//require_once CDM_PATH . '/include/functions.php';
 /**
  * include the module admin special functions
  */
-require_once __DIR__ . '/functions.php';
+//require_once __DIR__ . '/functions.php';
 
 /**
  * Call the admin page header function

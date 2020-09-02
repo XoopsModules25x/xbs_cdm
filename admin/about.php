@@ -16,7 +16,6 @@
  * @package
  * @since
  * @author       XOOPS Development Team
- * @version      $Id $
  */
 require_once __DIR__ . '/admin_header.php';
 

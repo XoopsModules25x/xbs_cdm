@@ -10,7 +10,7 @@
 </HEAD>
 <BODY LANG="en-US" DIR="LTR">
 <div align="center">
-    <a href="http://xoobs.net" target="_blank"><img src="../assets/images/Xoobs Banner Title.gif"></a><br>
+    <a href="http://xoops.org" target="_blank"><img src="../assets/images/Xoobs Banner Title.gif"></a><br>
 </div>
 <H1>Code Data Management module help</H1>
 
@@ -23,8 +23,7 @@
     module that is aimed at assisting Xoops business systems developers.
 </P>
 
-<P>This is the help file. For Class and Function definitions see <A HREF="../docs/index.html" TARGET="_blank">CDM
-    Class Documentation</A></P>
+<P>This is the help file. For Class and Function definitions see <A HREF="../docs/cdm.html" TARGET="_blank">CDM Class Documentation</A></P>
 
 <H3>Background</H3>
 
@@ -104,8 +103,8 @@
     2 entities, the meta data about the code set and the code set
     itself;<BR>The meta data describes the name and purpose of the code
     set. It also defines the data type and length of the code and the
-    code value. Meta data is held in the cdm_meta table which is defined
-    as:<BR>&nbsp;cdm_meta (<BR>&nbsp;&nbsp;cd_set varchar(10) NOT NULL
+    code value. Meta data is held in the xbscdm_meta table which is defined
+    as:<BR>&nbsp;xbscdm_meta (<BR>&nbsp;&nbsp;cd_set varchar(10) NOT NULL
     default 'BASE',<BR>&nbsp;&nbsp;cd_type
     enum('INTEGER','BIGINT','CHAR','VARCHAR') NOT NULL default
     'CHAR',<BR>&nbsp;&nbsp;cd_len int(10) unsigned NOT NULL default
@@ -447,8 +446,7 @@
 <BLOCKQUOTE>function getXoopsUser($id)<BR>Return a valid xoops user
     name given the user id
 </BLOCKQUOTE>
-<P>Check out the <A HREF="../docs/index.html" TARGET="_blank">CDM
-    Class Documentation</A> for further details
+<P>Check out the <A HREF="../docs/cdm.html" TARGET="_blank">CDM Class Documentation</A> for further details
 </P>
 
 <P>Take a look at <span style="font-weight: bold;">index.php, cdm_codes_edit.php </span>and
